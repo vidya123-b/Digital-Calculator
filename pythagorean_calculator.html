@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Pythagorean Theorem Calculator</title>
+<style>
+    body {
+        font-family: Arial, sans-serif;
+        background-color: #f0f0f0;
+    }
+    .container {
+        max-width: 400px;
+        margin: 0 auto;
+        padding: 20px;
+        background-color: #fff;
+        border-radius: 5px;
+        box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    }
+    input[type="number"] {
+        width: 100%;
+        padding: 10px;
+        margin-bottom: 10px;
+        border: 1px solid #ccc;
+        border-radius: 3px;
+    }
+    button {
+        width: 100%;
+        padding: 10px;
+        background-color: #007bff;
+        border: none;
+        border-radius: 3px;
+        color: #fff;
+        cursor: pointer;
+    }
+    button:hover {
+        background-color: #0056b3;
+    }
+</style>
+</head>
+<body>
+<div class="container">
+    <h2>Pythagorean Theorem Calculator</h2>
+    <label for="sideA">Side A:</label>
+    <input type="number" id="sideA">
+    <label for="sideB">Side B:</label>
+    <input type="number" id="sideB">
+    <label for="sideC">Side C:</label>
+    <input type="number" id="sideC">
+    <button onclick="calculate()">Calculate</button>
+    <div id="output"></div>
+</div>
+
+<script>
+    function calculate() {
+        var a = parseFloat(document.getElementById("sideA").value);
+        var b = parseFloat(document.getElementById("sideB").value);
+        var c = parseFloat(document.getElementById("sideC").value);
+        var output = document.getElementById("output");
+
+        if (Number.isNaN(a) && !Number.isNaN(b) && !Number.isNaN(c)) {
+            const a = Math.sqrt(c ** 2 - b ** 2);
+            output.textContent = 'A = ' + a.toFixed(2);
+        }
+
+        if (Number.isNaN(b) && !Number.isNaN(a) && !Number.isNaN(c)) {
+            const b = Math.sqrt(c ** 2 - a ** 2);
+            output.textContent = 'B = ' + b.toFixed(2);
+        }
+
+        if (Number.isNaN(c) && !Number.isNaN(a) && !Number.isNaN(b)) {
+            const c = Math.sqrt(a ** 2 + b ** 2);
+            output.textContent = 'C = ' + c.toFixed(2);
+        }
+    }
+</script>
+</body>
+</html>

@@ -1,0 +1,201 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="utf-8" />
+        <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+        <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no" />
+        <meta name="description" content="" />
+        <meta name="author" content="" />
+        <title>Percentage Calculator</title>
+        <style>
+            .calculator {
+                width: 350px;
+                margin: 640 148 auto;
+                padding: 20px;
+                border: 5px solid #001eff;
+                background-color: #292e32;
+                border-radius: 5px;
+            }
+            
+            #numerator, #denominator, .button1 {
+                margin: 5px;
+                padding: 5px;
+            }
+            
+            #denominator {
+                margin-top: 10px;
+                margin-bottom: 10px;
+                margin-left: 1px;                    
+            }
+
+            #of{
+                margin-left: 50px;
+            }
+
+            .button1 {
+                margin-top: 10px;
+                padding: 5px 10px;
+                background-color: #7362f1;
+                color: #fff;
+                border: none;
+                cursor: pointer;
+                
+            }
+            #calculate {
+                margin-left: 65px;
+            }
+            .button1:hover {
+                background-color: #007bff;
+            }
+            
+            .text , #result {
+                color: #fff;
+                font-size: 20px;
+            }
+    
+    
+        </style>
+        <link href="css/styles.css" rel="stylesheet" />
+        <script src="https://use.fontawesome.com/releases/v6.3.0/js/all.js" crossorigin="anonymous"></script>
+    </head>
+    <body class="sb-nav-fixed">
+        <nav class="sb-topnav navbar navbar-expand navbar-dark bg-dark">
+            <!-- Sidebar Toggle-->
+            <button class="btn btn-link btn-sm order-1 order-lg-0 me-4 me-lg-0" id="sidebarToggle" href="#!"><i class="fas fa-bars"></i></button>
+             <!-- Navbar Brand-->
+             <a class="navbar-brand ps-3" href="index.html">CalcRafter</a>
+            <!-- Navbar Search-->
+            <form class="d-none d-md-inline-block form-inline ms-auto me-0 me-md-3 my-2 my-md-0">
+                <div class="input-group">
+                    <input class="form-control" type="text" placeholder="Search for..." aria-label="Search for..." aria-describedby="btnNavbarSearch" />
+                    <button class="btn btn-primary" id="btnNavbarSearch" type="button"><i class="fas fa-search"></i></button>
+                </div>
+            </form>
+            <!-- Navbar-->
+            <ul class="navbar-nav ms-auto ms-md-0 me-3 me-lg-4">
+                <li class="nav-item dropdown">
+                    
+                </li>
+            </ul>
+        </nav>
+        <div id="layoutSidenav">
+            <div id="layoutSidenav_nav">
+                <nav class="sb-sidenav accordion sb-sidenav-dark" id="sidenavAccordion">
+                    <div class="sb-sidenav-menu">
+                        <div class="nav">
+                            <div class="sb-sidenav-menu-heading">Core</div>
+                            <a class="nav-link" href="index.html">
+                                <div class="sb-nav-link-icon"><i class="fas fa-tachometer-alt"></i></div>
+                                Dashboard
+                            </a>                               
+                            <div class="collapse" id="collapseLayouts" aria-labelledby="headingOne" data-bs-parent="#sidenavAccordion"></div>
+                            <div class="collapse" id="collapsePages" aria-labelledby="headingTwo" data-bs-parent="#sidenavAccordion"></div>
+
+                            <div class="sb-sidenav-menu-heading">Calculators</div>
+                            <a class="nav-link" href="Math.html">
+                                <div class="sb-nav-link-icon"><i class="fa-solid fa-calculator"></i></div>
+                               Math
+                            </a>
+                            <a class="nav-link" href="Fitness.html">
+                                <div class="sb-nav-link-icon"><i class="fas fa-dumbbell"></i></div>
+                               Fitness
+                            </a>
+                            <a class="nav-link" href="Finance.html">
+                                <div class="sb-nav-link-icon"><i class="fas fa-dollar-sign"></i></div>
+                               Finance
+                            </a>
+                            <a class="nav-link" href="Educational.html">
+                                <div class="sb-nav-link-icon"><i class="fa-solid fa-graduation-cap"></i></div>
+                               Educational
+                            </a>
+                        </div>
+                    </div>
+                    <div class="sb-sidenav-footer">
+                        <div class="small"></div>
+                        CalcRafter.com
+                    </div>
+                </nav>
+            </div>
+            <div id="layoutSidenav_content">
+                <br>
+                <main>
+                    <div class="container-fluid px-4">
+                        <h2>Percentage Calculator</h2>
+                        <p>Please provide any two values below and click the "Calculate" button to get the Result.</p>
+                        <div class="calculator">
+                            <span class="text">What is</span>
+                            <input type="number" id="numerator" value="20">
+                            <span class="text">%</span>
+                            <br>
+                            <span class="text" id="of">of</span>
+                            <input type="number" id="denominator" value="100"><br>
+                            <button class="button1" id="calculate" onclick="calculatePercentage()">Calculate</button>
+                            <button class="button1" type="reset" onclick="resetForm();">Clear</button>
+
+                            <p id="result"></p>
+                        </div>
+                        <br>
+                        <h4>What is a percentage?</h4>
+                        <p>In mathematics, a percentage is a number or ratio that represents a fraction of 100. It is one of the ways to represent a dimensionless relationship between two numbers; other methods include ratios, fractions, and decimals. Percentages are often denoted by the symbol "%" written after the number. They can also be denoted by writing "percent" or "pct" after the number. For example, 35% is equivalent to the decimal 0.35, or the fractions 35/100 and 7/20.</p>
+                        <p>Percentages are often used in various fields such as finance, economics, social sciences, and many more. They are used to express a relationship between two quantities. Percentages can be used to compare different quantities, to express a proportion of a whole, or to express a share of a total. For example, if a company has a 75% market share, it means that 75% of the market is occupied by that company. Percentages are also used in graphical representations, such as progress bars or pie charts, to show the proportion of a whole.</p>
+                        <p>Percentages are useful because they simplify ratios and dimensions. For example, a 500% increase is the same as a 5x increase. A 50% reduction is the same as a 50/100 reduction, or a 1/2 reduction.</p>
+                        <p>Percentages can be represented in decimal form (0.20) or fractional form (1/5). They can also be represented in a mixture of both, like 35.625.</p>
+                    
+                        <h4>Percentage formula</h4>
+                        <p>The formula for calculating a percentage is:</p>
+                        <p style="padding-left: 20px;">Percentage = (Numerator ÷ Denominator) × 100</p>
+                        <p style="padding-left: 20px;">Where:</p>
+                        <ul style="padding-left: 40px;">
+                            <li>Numerator: The part of the whole you want to find the percentage for.</li>
+                            <li>Denominator: The whole number or part of the whole that the numerator is compared to.</li>
+                        </ul>
+                    </div>
+                    <br>
+
+
+                    <script>
+                        function calculatePercentage() {
+                            var numerator = parseFloat(document.getElementById('numerator').value);
+                            var denominator = parseFloat(document.getElementById('denominator').value);
+                        
+                            if (isNaN(numerator) || isNaN(denominator)) {
+                                document.getElementById('result').innerText = "Please enter valid numbers.";
+                                return;
+                            }
+                        
+                            var percentage = (numerator / 100) * denominator;
+                            document.getElementById('result').innerText =  percentage.toFixed(2) + " is " + numerator + " % of " + denominator;
+                        }
+                        
+                        
+                        function resetForm() {
+                            document.getElementById('numerator').value = "";
+                            document.getElementById('denominator').value = "";
+                            document.getElementById('result').innerText = "";
+                        }
+                        
+                        
+                    </script>
+
+
+
+                </main>
+                
+                
+                <footer class="py-4 bg-dark mt-auto">
+                    <div class="container-fluid px-4">
+                        <div class="d-flex align-items-center justify-content-between small">
+                            <div class="m-0 text-center text-white">Copyright &copy; CalcRafter</div>   
+                        </div>
+                    </div>
+                </footer>
+            </div>
+        </div>
+        <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/js/bootstrap.bundle.min.js" crossorigin="anonymous"></script>
+        <script src="js/scripts.js"></script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.8.0/Chart.min.js" crossorigin="anonymous"></script>
+        <script src="assets/demo/chart-area-demo.js"></script>
+        <script src="assets/demo/chart-bar-demo.js"></script>
+        <script src="assets/demo/chart-pie-demo.js"></script>
+    </body>
+</html>

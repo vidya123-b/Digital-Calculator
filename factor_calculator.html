@@ -1,0 +1,315 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="utf-8" />
+        <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+        <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no" />
+        <meta name="description" content="" />
+        <meta name="author" content="" />
+        <title>Factor Calculator</title>
+        <link href="css/styles.css" rel="stylesheet" />
+        <script src="https://use.fontawesome.com/releases/v6.3.0/js/all.js" crossorigin="anonymous"></script>
+        <style>
+            .factor-tree {
+                width: 500px;
+                margin: 640 148 auto;
+                padding: 20px;
+                border: 5px solid #001eff;
+                background-color: #292e32;
+                border-radius: 5px;
+            }
+            .node {
+                display: inline-block;
+                padding: 5px;
+                border: 1px solid black;
+                margin: 5px;
+            }
+            .reset-btn {
+                padding: 8px 16px;
+                border-radius: 5px;   
+                border: none;
+                cursor: pointer;
+                font-size: 16px;
+                margin-top: 10px; 
+                margin-left: 5px;
+                background-color: #ff0000;
+                color: #ffffff;
+            }
+    
+            #calculate {
+                padding: 8px 16px;
+                border-radius: 5px;   
+                border: none;
+                cursor: pointer;
+                font-size: 16px;
+                margin-top: 10px;
+                margin-left: 5px;
+                background-color: #007bff;
+                color: #ffffff;
+            }
+            
+            .reset-btn:hover {
+                background-color: #ff7d7d;
+            }
+    
+            #calculate:hover {
+                background-color: hsl(211, 100%, 72%);
+            }
+    
+            #output {
+                color: #fff;
+                font-size: 20px;
+                margin-top: 10px;
+                margin-bottom: 10px;
+                font-weight: bold;
+                text-align: center;
+            }
+    
+    
+            #numberInput {
+                margin-top: 10px;
+                margin-bottom: 10px;
+                color: #000000;
+                font-size: 15px;
+                width: 250px;
+                height: 40px;
+                border: none;
+                padding: 8px 16px;
+                border-radius: 5px; 
+            }
+
+            .level1 {
+                margin-left: 40px;
+                
+            }
+           
+            .level3 {
+                margin-left: 30px;
+                margin-right: -10px;
+            }
+            .level4 {
+                margin-left: 40px;
+                margin-right: -10px;
+            }
+            .level5 {
+                margin-left: 50px;
+                margin-right: -10px;
+            }
+        </style>
+    </head>
+    <body class="sb-nav-fixed">
+        <nav class="sb-topnav navbar navbar-expand navbar-dark bg-dark">
+            <!-- Sidebar Toggle-->
+            <button class="btn btn-link btn-sm order-1 order-lg-0 me-4 me-lg-0" id="sidebarToggle" href="#!"><i class="fas fa-bars"></i></button>
+             <!-- Navbar Brand-->
+             <a class="navbar-brand ps-3" href="index.html">CalcRafter</a>
+            <!-- Navbar Search-->
+            <form class="d-none d-md-inline-block form-inline ms-auto me-0 me-md-3 my-2 my-md-0">
+                <div class="input-group">
+                    <input class="form-control" type="text" placeholder="Search for..." aria-label="Search for..." aria-describedby="btnNavbarSearch" />
+                    <button class="btn btn-primary" id="btnNavbarSearch" type="button"><i class="fas fa-search"></i></button>
+                </div>
+            </form>
+            <!-- Navbar-->
+            <ul class="navbar-nav ms-auto ms-md-0 me-3 me-lg-4">
+                <li class="nav-item dropdown">
+                    
+                </li>
+            </ul>
+        </nav>
+        <div id="layoutSidenav">
+            <div id="layoutSidenav_nav">
+                <nav class="sb-sidenav accordion sb-sidenav-dark" id="sidenavAccordion">
+                    <div class="sb-sidenav-menu">
+                        <div class="nav">
+                            <div class="sb-sidenav-menu-heading">Core</div>
+                            <a class="nav-link" href="index.html">
+                                <div class="sb-nav-link-icon"><i class="fas fa-tachometer-alt"></i></div>
+                                Dashboard
+                            </a>                               
+                            <div class="collapse" id="collapseLayouts" aria-labelledby="headingOne" data-bs-parent="#sidenavAccordion"></div>
+                            <div class="collapse" id="collapsePages" aria-labelledby="headingTwo" data-bs-parent="#sidenavAccordion"></div>
+
+                            <div class="sb-sidenav-menu-heading">Calculators</div>
+                            <a class="nav-link" href="Math.html">
+                                <div class="sb-nav-link-icon"><i class="fa-solid fa-calculator"></i></div>
+                               Math
+                            </a>
+                            <a class="nav-link" href="Fitness.html">
+                                <div class="sb-nav-link-icon"><i class="fas fa-dumbbell"></i></div>
+                               Fitness
+                            </a>
+                            <a class="nav-link" href="Finance.html">
+                                <div class="sb-nav-link-icon"><i class="fas fa-dollar-sign"></i></div>
+                               Finance
+                            </a>
+                            <a class="nav-link" href="Educational.html">
+                                <div class="sb-nav-link-icon"><i class="fa-solid fa-graduation-cap"></i></div>
+                               Educational
+                            </a>
+                        </div>
+                    </div>
+                    <div class="sb-sidenav-footer">
+                        <div class="small"></div>
+                        CalcRafter.com
+                    </div>
+                </nav>
+            </div>
+            <div id="layoutSidenav_content">
+                <br>
+                <main>
+                    <div class="container-fluid px-4">
+                        <h1>Factor Calculator</h1>
+                        <div class="factor-tree">
+                            <input type="number" id="numberInput" placeholder="Enter a number">
+                            <button id="calculate" onclick="generateFactorTree()">Calculate</button>
+                            <button class="reset-btn" onclick="reset()">Clear</button>
+                            <div id="output"></div>
+                        </div>
+                        <br>
+                        <h4>What is a factor?</h4>
+                        <p>A factor is a number that divides another number without leaving a remainder. In other words, it is a number that can be multiplied by another number to produce the original number.</p>
+                        <p><b>Example of a factor tree:</b></p>
+                        <p>Consider the number 60.</p>
+                        <p>2 * 3 * 5 = 60</p>
+                        <p>
+                            <span class="level1">60</span><br>
+                            <span class="level3">/</span>
+                            <span class="level3">\</span><br>
+                            <span class="level3">2</span>
+                            <span class="level3">30</span><br>
+                            <span class="level4">/</span>
+                            <span class="level4">\</span><br>
+                            <span class="level4">2</span>
+                            <span class="level4">15</span><br>
+                            <span class="level5">/</span>
+                            <span class="level5">\</span><br>
+                            <span class="level5">3</span>
+                            <span class="level5">5</span>
+
+                        </p>
+                        <p>
+                            In this example, we start with the number 60. We can see that 60 can be divided by 2 and 3, so these numbers are factors of 60. We can also see that 60 can be divided by 5, so 5 is also a factor of 60. 
+                        </p>
+                        <p>
+                            To generate the factor tree, we start with the number 60. We then look for factors of 60, which are 2 and 3. We create a subtree rooted at each of these factors and continue the process with the subtree roots. In this case, we find that the factors of 2 and 3 are 1 and 5, respectively. We then create a subtree rooted at each of these factors, and so on.
+                        </p>
+                        <p>
+                            This process continues until we have found all of the factors of the original number, in this case, all of the factors of 60. At each step, we add a node to the tree representing a factor and then recursively generate subtrees for each of its factors.
+                        </p>
+                        <p>
+                            The result of this process is the factor tree for the original number, which is a visual representation of the factors of the original number. In this case, the factor tree for 60 is shown above.
+                        </p>
+                    </div>
+                </main>
+                
+                <script>
+                    function factorize(n, node) {
+                        for (let i = 2; i <= Math.sqrt(n); i++) {
+                            if (n % i === 0) {
+                                const childNode = document.createElement('div');
+                                childNode.className = 'node';
+                                childNode.textContent = i;
+                                node.appendChild(childNode);
+                                factorize(n / i, childNode);
+                                return;
+                            }
+                        }
+                        const childNode = document.createElement('div');
+                        childNode.className = 'node';
+                        childNode.textContent = n;
+                        node.appendChild(childNode);
+                    }
+            
+                    function generateFactorTree() {
+                        const numberInput = document.getElementById('numberInput');
+                        const output = document.getElementById('output');
+                        output.innerHTML = '';
+            
+                        const number = parseInt(numberInput.value);
+                        if (isNaN(number) || number <= 1) {
+                            output.textContent = 'Please enter a valid number greater than 1.';
+                            return;
+                        }
+            
+                        const factorTreeContainer = document.createElement('div');
+                        factorTreeContainer.id = 'factorTree';
+                        output.appendChild(factorTreeContainer);
+            
+                        output.innerHTML += `<p>Result: </p>`;
+                        output.innerHTML += `<p>Factors: ${generateFactors(number)}</p>`;
+                        output.innerHTML += `<p>Factor Pairs: ${generateFactorPairs(number)}</p>`;
+                        output.innerHTML += `<p>Prime factors: ${generatePrimeFactors(number)}</p>`;
+            
+                        const factorNode = document.createElement('div');
+                        factorNode.className = 'node';
+                        factorNode.textContent = number;
+                        factorTreeContainer.appendChild(factorNode);
+                        factorize(number, factorTreeContainer);
+                    }
+            
+                    function generateFactors(number) {
+                        const factors = [];
+                        for (let i = 1; i <= number; i++) {
+                            if (number % i === 0) {
+                                factors.push(i);
+                            }
+                        }
+                        return factors.join(', ');
+                    }
+            
+                    function generateFactorPairs(number) {
+                        const factorPairs = [];
+                        for (let i = 1; i <= Math.sqrt(number); i++) {
+                            if (number % i === 0) {
+                                factorPairs.push(`(${i}, ${number / i})`);
+                            }
+                        }
+                        return factorPairs.join(' ');
+                    }
+            
+                    function generatePrimeFactors(number) {
+                        let n = number;
+                        const primeFactors = [];
+                        for (let i = 2; i <= n; i++) {
+                            while (n % i === 0) {
+                                primeFactors.push(i);
+                                n /= i;
+                            }
+                        }
+                        return `${number} = ${primeFactors.join(' × ')}`;
+                    }
+            
+                    function reset() {
+                        const factorTree = document.getElementById('factorTree');
+                        factorTree.innerHTML = '';
+            
+                        const numberInput = document.getElementById('numberInput');
+                        numberInput.value = '';
+            
+                        const output = document.getElementById('output');
+                        output.innerHTML = '';
+            
+                        const factorTreeContainer = document.getElementById('factorTree');
+                        factorTreeContainer.style.display = 'none';
+            
+                    }
+                </script>
+
+                <footer class="py-4 bg-dark mt-auto">
+                    <div class="container-fluid px-4">
+                        <div class="d-flex align-items-center justify-content-between small">
+                            <div class="m-0 text-center text-white">Copyright &copy; CalcRafter</div>   
+                        </div>
+                    </div>
+                </footer>
+            </div>
+        </div>
+        <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/js/bootstrap.bundle.min.js" crossorigin="anonymous"></script>
+        <script src="js/scripts.js"></script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.8.0/Chart.min.js" crossorigin="anonymous"></script>
+        <script src="assets/demo/chart-area-demo.js"></script>
+        <script src="assets/demo/chart-bar-demo.js"></script>
+        <script src="assets/demo/chart-pie-demo.js"></script>
+    </body>
+</html>

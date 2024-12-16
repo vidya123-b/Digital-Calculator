@@ -1,0 +1,300 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>BMR Calculator</title>
+    <link rel="stylesheet" href="styles2.css">
+    
+</head>
+<body>
+    
+    
+    
+</body>
+</html>
+
+
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="utf-8" />
+        <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+        <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no" />
+        <meta name="description" content="" />
+        <meta name="author" content="" />
+        <title></title>
+        <link href="css/styles.css" rel="stylesheet" />
+        <script src="https://use.fontawesome.com/releases/v6.3.0/js/all.js" crossorigin="anonymous"></script>
+        <style>
+            .table {
+        margin: 0 auto; /* Center the table */
+        max-width: 300px; /* Increase the max-width of the table */
+        width: 100%;
+        border-collapse: collapse;
+            }
+            
+            .th1, .td1 {
+                border: 1px solid #ddd;
+                padding: 8px;
+                text-align: center;
+            }
+            
+            .th1 {
+                background-color: #f2f2f2;
+            }
+
+            .body {
+                font-family: Arial, sans-serif;
+                background-color: #f8f8f8;
+                margin: 0;
+                padding: 0;
+            }
+            
+            .calculator {
+                max-width: 300px; /* Reduce the max-width */
+                margin: 50px auto; /* Center the container */
+                padding: 20px;
+                border-radius: 10px;
+                background-color: #fff;
+                box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+            }
+            
+            .h2 {
+                text-align: center;
+                color: #333;
+                margin-bottom: 20px;
+            }
+            
+            .label {
+                font-weight: bold;
+                display: block;
+                margin-bottom: 5px;
+                color: #555;
+            }
+            
+            .input[type="number"] {
+                width: 100%;
+                padding: 8px;
+                margin-bottom: 10px;
+                border: 1px solid #ccc;
+                border-radius: 4px;
+                box-sizing: border-box;
+            }
+            
+            .button {
+                width: 100%;
+                padding: 10px;
+                border: none;
+                border-radius: 4px;
+                background-color: #f44336;
+                color: white;
+                cursor: pointer;
+            }
+            
+            .button:hover {
+                background-color: #e53935;
+            }
+            
+            .table {
+                margin: 0 auto; /* Center the table */
+                max-width: 200px; /* Reduce the max-width of the table */
+                width: 100%;
+                border-collapse: collapse;
+            }
+            
+            .th1, .td1 {
+                border: 1px solid #ddd;
+                padding: 8px;
+                text-align: center;
+            }
+            
+            .th1 {
+                background-color: #f2f2f2;
+            }
+            
+            #result {
+                margin-top: 20px;
+                font-weight: bold;
+                text-align: center;
+                color: #333;
+            }
+            
+        </style>
+    </head>
+    <body class="sb-nav-fixed">
+        <nav class="sb-topnav navbar navbar-expand navbar-dark bg-dark">
+            <!-- Sidebar Toggle-->
+            <button class="btn btn-link btn-sm order-1 order-lg-0 me-4 me-lg-0" id="sidebarToggle" href="#!"><i class="fas fa-bars"></i></button>
+             <!-- Navbar Brand-->
+             <a class="navbar-brand ps-3" href="index.html">CalcRafter</a>
+            <!-- Navbar Search-->
+            <form class="d-none d-md-inline-block form-inline ms-auto me-0 me-md-3 my-2 my-md-0">
+                <div class="input-group">
+                    <input class="form-control" type="text" placeholder="Search for..." aria-label="Search for..." aria-describedby="btnNavbarSearch" />
+                    <button class="btn btn-primary" id="btnNavbarSearch" type="button"><i class="fas fa-search"></i></button>
+                </div>
+            </form>
+            <!-- Navbar-->
+            <ul class="navbar-nav ms-auto ms-md-0 me-3 me-lg-4">
+                <li class="nav-item dropdown">
+                    
+                </li>
+            </ul>
+        </nav>
+        <div id="layoutSidenav">
+            <div id="layoutSidenav_nav">
+                <nav class="sb-sidenav accordion sb-sidenav-dark" id="sidenavAccordion">
+                    <div class="sb-sidenav-menu">
+                        <div class="nav">
+                            <div class="sb-sidenav-menu-heading">Core</div>
+                            <a class="nav-link" href="index.html">
+                                <div class="sb-nav-link-icon"><i class="fas fa-tachometer-alt"></i></div>
+                                Dashboard
+                            </a>                               
+                            <div class="collapse" id="collapseLayouts" aria-labelledby="headingOne" data-bs-parent="#sidenavAccordion"></div>
+                            <div class="collapse" id="collapsePages" aria-labelledby="headingTwo" data-bs-parent="#sidenavAccordion"></div>
+
+                            <div class="sb-sidenav-menu-heading">Calculators</div>
+                            <a class="nav-link" href="Math.html">
+                                <div class="sb-nav-link-icon"><i class="fa-solid fa-calculator"></i></div>
+                               Math
+                            </a>
+                            <a class="nav-link" href="Fitness.html">
+                                <div class="sb-nav-link-icon"><i class="fas fa-dumbbell"></i></div>
+                               Fitness
+                            </a>
+                            <a class="nav-link" href="Finance.html">
+                                <div class="sb-nav-link-icon"><i class="fas fa-dollar-sign"></i></div>
+                               Finance
+                            </a>
+                            <a class="nav-link" href="Educational.html">
+                                <div class="sb-nav-link-icon"><i class="fa-solid fa-graduation-cap"></i></div>
+                               Educational
+                            </a>
+                        </div>
+                    </div>
+                    <div class="sb-sidenav-footer">
+                        <div class="small"></div>
+                        CalcRafter.com
+                    </div>
+                </nav>
+            </div>
+            <div id="layoutSidenav_content">
+               
+                <main>
+                    <div class="container-fluid px-4">
+
+                        <div class="calculator">
+                            <h2 class="h2">BMR Calculator</h2>
+                            <div class="input-fields">
+                                <label class="label" for="age">Age:</label>
+                                <input class="input" type="number" id="age" placeholder="Enter your age">
+                                <label class="label" for="gender">Gender:</label>
+                                <select id="gender" size="1" style="width: 150px;">
+                                    <option value="male">Male</option>
+                                    <option value="female">Female</option>
+                                </select>
+                                <label class="label" for="weight">Weight (kg):</label>
+                                <input class="input" type="number" id="weight" placeholder="Enter weight in kg">
+                                <label class="label" for="height">Height (cm):</label>
+                                <input class="input" type="number" id="height" placeholder="Enter height in cm">
+                            </div>
+                            <button class="button" onclick="calculateBMR()">Calculate BMR</button>
+                            <div id="result" class="result"></div>
+                        </div>
+                        <table class="table">
+                            <tr>
+                                <th class="th1">Age (Years)</th>
+                                <th class="th1">BMR (Calories/Day) - Men</th>
+                                <th class="th1">BMR (Calories/Day) - Women</th>
+                            </tr>
+                            <tr>
+                                <td class="td1">18-25</td>
+                                <td class="td1">1,600-1,800</td>
+                                <td class="td1">1,400-1,600</td>
+                            </tr>
+                            <tr>
+                                <td class="td1">26-30</td>
+                                <td class="td1">1,700-1,900</td>
+                                <td class="td1">1,500-1,700</td>
+                            </tr>
+                            <tr>
+                                <td class="td1">31-35</td>
+                                <td class="td1">1,800-2,000</td>
+                                <td class="td1">1,600-1,800</td>
+                            </tr>
+                            <tr>
+                              <td   class="td1">36-40</td>
+                              <td   class="td1">1,900-2,100</td>
+                              <td   class="td1">1,600-1,800</td>
+                          </tr>
+                    
+                        </table>
+                        <p>
+                           <b> BMR is typically between 1,000 and 2,000 calories, meaning you need 1,000 to 2,000 calories to fuel 
+                            basic functions
+                        </b></p>
+                        <br>
+                       BMR is based on your height, weight, age, sex, and genetics. For example, men's BMR tends to be around 1600–1800 calories a day, while most women have a BMR of around 1550 calories a day.
+                         However, even if you and your workout buddy are the same age, sex, height, weight, and body composition, you still can have different BMRs. Things totally out of your control, like genetics and even organ size, impact BMR. 
+                        <br><br>
+                       <b> Factors affecting BMR:<br><br></b>
+                    
+                    Body composition:  Muscle mass burns more calories than fat tissue, so individuals with higher muscle mass tend to have a higher BMR.<br>
+                    Age: BMR generally declines with age as muscle mass naturally decreases.<br>
+                    Gender: Men typically have a higher BMR than women due to their larger muscle mass.<br>
+                    Height: Taller individuals tend to have a higher BMR than shorter individuals due to their larger body surface area.<br>
+                    Genetics: Some individuals are genetically predisposed to having a higher or lower BMR.<br>
+                    </p>
+                    </div>
+                </main>
+                
+                
+                <footer class="py-4 bg-dark mt-auto">
+                    <div class="container-fluid px-4">
+                        <div class="d-flex align-items-center justify-content-between small">
+                            <div class="m-0 text-center text-white">Copyright &copy; CalcRafter</div>   
+                        </div>
+                    </div>
+                </footer>
+            </div>
+        </div>
+        <script>
+            function calculateBMR() {
+                var age = parseInt(document.getElementById('age').value);
+                var gender = document.getElementById('gender').value;
+                var weight = parseFloat(document.getElementById('weight').value);
+                var height = parseFloat(document.getElementById('height').value);
+            
+                if (isNaN(age) || isNaN(weight) || isNaN(height) || age <= 0 || weight <= 0 || height <= 0) {
+                    alert("Please enter valid age, weight, and height values.");
+                    return;
+                }
+            
+                var bmr = calculateBasalMetabolicRate(age, gender, weight, height);
+            
+                var resultDiv = document.getElementById('result');
+                resultDiv.innerHTML = 'Your Basal Metabolic Rate (BMR) is: ' + bmr.toFixed(2) + ' calories/day';
+                resultDiv.classList.add('result');
+            }
+            
+            function calculateBasalMetabolicRate(age, gender, weight, height) {
+                var bmr;
+                if (gender === 'male') {
+                    bmr = 10 * weight + 6.25 * height - 5 * age + 5;
+                } else {
+                    bmr = 10 * weight + 6.25 * height - 5 * age - 161;
+                }
+                return bmr;
+            }
+            
+        </script>
+        <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/js/bootstrap.bundle.min.js" crossorigin="anonymous"></script>
+        <script src="js/scripts.js"></script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.8.0/Chart.min.js" crossorigin="anonymous"></script>
+        <script src="assets/demo/chart-area-demo.js"></script>
+        <script src="assets/demo/chart-bar-demo.js"></script>
+        <script src="assets/demo/chart-pie-demo.js"></script>
+    </body>
+</html>

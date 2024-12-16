@@ -1,0 +1,467 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="utf-8" />
+        <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+        <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no" />
+        <meta name="description" content="" />
+        <meta name="author" content="" />
+        <title>Area Calculator</title>
+        <link href="css/styles.css" rel="stylesheet" />
+        <script src="https://use.fontawesome.com/releases/v6.3.0/js/all.js" crossorigin="anonymous"></script>
+        <style>
+            .calculator-card{
+                width: 350px;
+                margin: 640 148 auto;
+                padding: 20px;
+                border: 5px solid #001eff;
+                background-color: #292e32;
+                border-radius: 5px;
+            }
+    
+            .reset-btn {
+                padding: 8px 16px;
+                border-radius: 5px;   
+                border: none;
+                cursor: pointer;
+                font-size: 16px;
+                margin-top: 10px; 
+                margin-left: 5px;
+                background-color: #ff0000;
+                color: #ffffff;
+                
+            }
+    
+            #calculate {
+                padding: 8px 16px;
+                border-radius: 5px;   
+                border: none;
+                cursor: pointer;
+                font-size: 16px;
+                margin-top: 10px;
+                margin-left: 55px;
+                background-color: #007bff;
+                color: #ffffff;
+
+                
+            }
+            
+            .reset-btn:hover {
+                background-color: #ff7d7d;
+            }
+    
+            #calculate:hover {
+                background-color: hsl(211, 100%, 72%);
+            }
+    
+            .output {
+                color: #fff;
+                font-size: 20px;
+                margin-top: 10px;
+                margin-bottom: 10px;
+                font-weight: bold;
+                text-align: center;
+            }
+    
+    
+            .numberInput {
+                margin-left: 50px;
+                margin-top: 10px;
+                margin-bottom: 10px;
+                color: #000000;
+                font-size: 15px;
+                width: 200px;
+                height: 30px;
+                border: none;
+                padding: 8px 16px;
+                border-radius: 5px; 
+                display: flex;
+                flex-wrap: wrap;
+                justify-content: space-between;
+            }
+    
+            .labels{
+                color: #fff;
+                font-size: 20px;
+            }
+        </style>
+    </head>
+    <body class="sb-nav-fixed">
+        <nav class="sb-topnav navbar navbar-expand navbar-dark bg-dark">
+            <!-- Sidebar Toggle-->
+            <button class="btn btn-link btn-sm order-1 order-lg-0 me-4 me-lg-0" id="sidebarToggle" href="#!"><i class="fas fa-bars"></i></button>
+             <!-- Navbar Brand-->
+             <a class="navbar-brand ps-3" href="index.html">CalcRafter</a>
+            <!-- Navbar Search-->
+            <form class="d-none d-md-inline-block form-inline ms-auto me-0 me-md-3 my-2 my-md-0">
+                <div class="input-group">
+                    <input class="form-control" type="text" placeholder="Search for..." aria-label="Search for..." aria-describedby="btnNavbarSearch" />
+                    <button class="btn btn-primary" id="btnNavbarSearch" type="button"><i class="fas fa-search"></i></button>
+                </div>
+            </form>
+            <!-- Navbar-->
+            <ul class="navbar-nav ms-auto ms-md-0 me-3 me-lg-4">
+                <li class="nav-item dropdown">
+                    
+                </li>
+            </ul>
+        </nav>
+        <div id="layoutSidenav">
+            <div id="layoutSidenav_nav">
+                <nav class="sb-sidenav accordion sb-sidenav-dark" id="sidenavAccordion">
+                    <div class="sb-sidenav-menu">
+                        <div class="nav">
+                            <div class="sb-sidenav-menu-heading">Core</div>
+                            <a class="nav-link" href="index.html">
+                                <div class="sb-nav-link-icon"><i class="fas fa-tachometer-alt"></i></div>
+                                Dashboard
+                            </a>                               
+                            <div class="collapse" id="collapseLayouts" aria-labelledby="headingOne" data-bs-parent="#sidenavAccordion"></div>
+                            <div class="collapse" id="collapsePages" aria-labelledby="headingTwo" data-bs-parent="#sidenavAccordion"></div>
+
+                            <div class="sb-sidenav-menu-heading">Calculators</div>
+                            <a class="nav-link" href="Math.html">
+                                <div class="sb-nav-link-icon"><i class="fa-solid fa-calculator"></i></div>
+                               Math
+                            </a>
+                            <a class="nav-link" href="Fitness.html">
+                                <div class="sb-nav-link-icon"><i class="fas fa-dumbbell"></i></div>
+                               Fitness
+                            </a>
+                            <a class="nav-link" href="Finance.html">
+                                <div class="sb-nav-link-icon"><i class="fas fa-dollar-sign"></i></div>
+                               Finance
+                            </a>
+                            <a class="nav-link" href="Educational.html">
+                                <div class="sb-nav-link-icon"><i class="fa-solid fa-graduation-cap"></i></div>
+                               Educational
+                            </a>
+                        </div>
+                    </div>
+                    <div class="sb-sidenav-footer">
+                        <div class="small"></div>
+                        CalcRafter.com
+                    </div>
+                </nav>
+            </div>
+            <div id="layoutSidenav_content">
+                
+                <br>
+               
+                <main>
+                    <div class="container-fluid px-4">
+                        <div class="container">
+                            <h1>Area Calculator</h1><br>
+                            <h2>Rectangle</h2>
+                            <div class="calculator-card">
+                                
+                                <label class="labels" for="rect-width">Width (w):</label>
+                                <input class="numberInput" type="number" id="rect-width" value="30"><br>
+                                <label class="labels" for="rect-height">Height (h):</label>
+                                <input class="numberInput" type="number" id="rect-height" value="20"><br>
+                                <button id="calculate" onclick="calculateRectangle()">Calculate</button>
+                                <button class="reset-btn" onclick="reset1()">Clear</button>
+                                <p class="output" id="rect-result"></p>
+                            </div><br>
+                            <h2>Triangle</h2>
+                            <div class="calculator-card">
+                                
+                                <label class="labels" for="tri-base">Base (b):</label>
+                                <input class="numberInput" type="number" id="tri-base" value="30"><br>
+                                <label class="labels" for="tri-height" >Height (h):</label>
+                                <input class="numberInput" type="number" id="tri-height" value="25"><br>
+                                <button id="calculate" onclick="calculateTriangle()">Calculate</button>
+                                <button class="reset-btn" onclick="reset2()">Clear</button>
+                                <p class="output" id="tri-result"></p>
+                            </div><br>
+                            <h2>Trapezoid</h2>
+                            <div class="calculator-card">
+                                
+                                <label class="labels" for="tr-a">Base 1 (b1):</label>
+                                <input class="numberInput" type="number" id="tr-a" value="30"><br>
+                                <label class="labels" for="tr-b">Base 2 (b2):</label>
+                                <input class="numberInput" type="number" id="tr-b" value="25"><br>
+                                <label class="labels" for="tr-h">Height (h):</label>
+                                <input class="numberInput" type="number" id="tr-h" value="40"><br>
+                                <button id="calculate" onclick="calculateTrapezoid()">Calculate</button>
+                                <button class="reset-btn" onclick="reset3()">Clear</button>
+                                <p class="output" id="tr-result"></p>
+                            </div><br>
+                            <h2>Circle</h2>
+                            <div class="calculator-card">
+                                
+                                <label class="labels" for="cir-radius">Radius (r):</label>
+                                <input class="numberInput" type="number" id="cir-radius" value="30"><br>
+                                <button id="calculate" onclick="calculateCircle()">Calculate</button>
+                                <button class="reset-btn" onclick="reset4()">Clear</button>
+                                <p class="output" id="cir-result"></p>
+                            </div><br>
+                            <h2>Sector</h2>
+                            <div class="calculator-card">
+                                
+                                <label class="labels" for="sec-radius">Radius (r):</label>
+                                <input class="numberInput" type="number" id="sec-radius" value="30"><br>
+                                <label class="labels" for="sec-angle">Angle (A):</label>
+                                <input class="numberInput" type="number" id="sec-angle" value="90"><br>
+                                <button id="calculate" onclick="calculateSector()">Calculate</button>
+                                <button class="reset-btn" onclick="reset5()">Clear</button>
+                                <p class="output" id="sec-result"></p>
+                            </div><br>
+                            <h2>Ellipse</h2>
+                            <div class="calculator-card">
+                                
+                                <label class="labels" for="ell-a">Semi-major Axes (a):</label>
+                                <input class="numberInput" type="number" id="ell-a" value="30"><br>
+                                <label class="labels" for="ell-b">Semi-minor Axes (b):</label>
+                                <input class="numberInput" type="number" id="ell-b" value="45"><br>
+                                <button id="calculate" onclick="calculateEllipse()">Calculate</button>
+                                <button class="reset-btn" onclick="reset6()">Clear</button>
+                                <p class="output" id="ell-result"></p>
+                            </div><br>
+                            <h2>Parallelogram</h2>
+                            <div class="calculator-card">
+                                
+                                <label class="labels" for="par-base">Base (b):</label>
+                                <input class="numberInput" type="number" id="par-base" value="30"><br>
+                                <label class="labels" for="par-height">Height (h):</label>
+                                <input class="numberInput" type="number" id="par-height" value="20"><br>
+                                <button id="calculate" onclick="calculateParallelogram()">Calculate</button>
+                                <button class="reset-btn" onclick="reset7()">Clear</button>
+                                <p class="output" id="par-result"></p>
+                            </div><br>
+                        </div>
+                        <p style="color: #ff0000; font-weight: bold">Note: Given result is in meters.</p>
+
+                        <h4>Area</h4>
+                        <p>The area of a shape is the measure of the amount of space inside the shape. It is calculated by multiplying the length of the base by the length of the height. This is particularly useful in calculating the area of a rectangle, square, circle, ellipse, triangle, and more.</p>
+
+                        <h4>Rectangle Area</h4>
+                        <p>For a rectangle, the area is the length times the width.</p>
+                        <p><b>Formula: 
+                            <br>Area = Width (w) x Height (h) <br><br>
+                            Example: </b>
+                            <br>Width (w) = 30
+                            <br>Height (h) = 20
+                            <br>Area = 30 x 20 = 600 
+                        </p>
+
+                        <h4>Triangle Area</h4>
+                        <p>For a triangle, the area is the half of the base times the height.</p>
+                        <p><b>Formula:
+                            <br>Area = 0.5 x Base (b) x Height (h) <br><br>
+                            Example: </b>
+                            <br>Base (b) = 30
+                            <br>Height (h) = 20
+                            <br>Area = 0.5 x 30 x 20 = 600
+                        </p>
+
+                        <h4>Trapezoid Area</h4>
+                        <p>For a trapezoid, the area is the sum of the bases multiplied by the height divided by two.</p>
+                        <p><b>Formula:
+                            <br>Area = (Base 1 (b1) + Base 2 (b2)) x Height (h) / 2 <br><br>
+                            Example: </b>
+                            <br>Base 1 (b1) = 30
+                            <br>Base 2 (b2) = 20
+                            <br>Height (h) = 25
+                            <br>Area = (30 + 20) x 25 / 2 = 625
+                        </p>
+
+                        <h4>Circle Area</h4>
+                        <p>For a circle, the area is the area of a circle with the radius as its diameter.</p>
+                        <p><b>Formula:
+                            <br>Area = &Pi; x Radius (r) x Radius (r) <br><br>
+                            Example: </b>
+                            <br>Radius (r) = 30
+                            <br>Area = &Pi; x 30 x 30 = 2826.85
+                        </p>
+
+                        <h4>Sector Area</h4>
+                        <p>For a sector, the area is the area of the circle formed by the center of the sector and the radius.</p>
+                        <p><b>Formula:
+                            <br>Area = &Pi; x Radius (r) x Radius (r) / 2 - (&Pi; x Radius (r) x Radius (r) / 2) * (cos(theta)) <br><br>
+                            Example: </b>
+                            <br>Radius (r) = 30
+                            <br>Area = &Pi; x 30 x 30 / 2 - (&Pi; x 30 x 30 / 2) * (cos(45)) = 2826.85
+                        </p>
+
+                        <h4>Ellipse Area</h4>
+                        <p>For an ellipse, the area is the area of the ellipse.</p>
+                        <p><b>Formula:
+                            <br>Area = &Pi; x a x b <br><br>
+                            Example: </b>
+                            <br>a = 30
+                            <br>b = 20
+                            <br>Area = &Pi; x 30 x 20 = 2826.85
+                        </p>
+
+                        <h4>Parallelogram Area</h4>
+                        <p>For a parallelogram, the area is the area of the parallelogram.</p>
+                        <p><b>Formula:
+                            <br>Area = base (b) x height (h) <br><br>
+                            Example: </b>
+                            <br>base (b) = 30
+                            <br>height (h) = 20
+                            <br>Area = 30 x 20 = 600
+                        </p>
+
+                    </div>
+                </main>
+
+                <script>
+                    function calculateRectangle(){
+                        var width = document.getElementById('rect-width').value;
+                        var height = document.getElementById('rect-height').value;
+                        var area = width * height;
+                        var perimeter = 2 * (width + height);
+                        document.getElementById('rect-result').innerHTML = "Area: " + area + "<br>Perimeter: " + perimeter;
+                    }
+            
+                    function reset1(){
+                        document.getElementById('rect-result').innerHTML = "";
+                        document.getElementById('rect-width').value = "";
+                        document.getElementById('rect-height').value = "";
+            
+                    }
+                    
+                    function calculateTriangle(){
+                        var base = document.getElementById('tri-base').value;
+                        var height = document.getElementById('tri-height').value;
+                        var area = 0.5 * base * height;
+                        var perimeter = base + base + height + height;
+                        document.getElementById('tri-result').innerHTML = "Area: " + area + "<br>Perimeter: " + perimeter;
+                    }
+            
+                    function reset2(){
+                        document.getElementById('tri-result').innerHTML = "";
+                        document.getElementById('tri-base').value = "";
+                        document.getElementById('tri-height').value = "";
+            
+                    }
+                    function calculateTrapezoid() {
+                        var a = parseFloat(document.getElementById('tr-a').value);
+                        var b = parseFloat(document.getElementById('tr-b').value);
+                        var height = parseFloat(document.getElementById('tr-h').value);
+                
+                        // Check if inputs are valid numbers
+                        if (isNaN(a) || isNaN(b) || isNaN(height)) {
+                            document.getElementById('tr-result').innerHTML = "Please enter valid numbers for all inputs.";
+                            return;
+                        }
+                        var area = 0.5 * (a + b) * height;
+                        var perimeter = a + b + 2 * Math.sqrt(Math.pow((a - b) / 2, 2) + Math.pow(height, 2));
+                        document.getElementById('tr-result').innerHTML = "Area: " + area.toFixed(2) + "<br>Perimeter: " + perimeter.toFixed(2);
+                    }
+                    
+                    function reset3(){
+                        document.getElementById('tr-result').innerHTML = "";
+                        document.getElementById('tr-a').value = "";
+                        document.getElementById('tr-b').value = "";
+                        document.getElementById('tr-h').value = "";
+            
+                    }
+                    
+                    function calculateCircle() {
+                        var radius = parseFloat(document.getElementById('cir-radius').value);
+                
+                        // Check if radius is a valid number
+                        if (isNaN(radius)) {
+                            document.getElementById('cir-result').innerHTML = "Please enter a valid number for the radius.";
+                            return;
+                        }
+                
+                        var area = Math.PI * Math.pow(radius, 2);
+                        var circumference = 2 * Math.PI * radius;
+                        document.getElementById('cir-result').innerHTML = "Area: " + area.toFixed(2) + "<br>Circumference: " + circumference.toFixed(2);
+                    }
+            
+                    function reset4(){
+                        document.getElementById('cir-result').innerHTML = "";
+                        document.getElementById('cir-radius').value = "";
+                        
+            
+                    }
+            
+                    function calculateSector() {
+                        var radius = parseFloat(document.getElementById('sec-radius').value);
+                        var angle = parseFloat(document.getElementById('sec-angle').value);
+                
+                        // Check if radius and angle are valid numbers
+                        if (isNaN(radius) || isNaN(angle)) {
+                            document.getElementById('sec-result').innerHTML = "Please enter valid numbers for both radius and angle.";
+                            return;
+                        }
+                
+                        // Convert angle from degrees to radians
+                        var angleInRadians = angle * (Math.PI / 180);
+                
+                        var area = 0.5 * Math.pow(radius, 2) * angleInRadians;
+                        document.getElementById('sec-result').innerHTML = "Area: " + area.toFixed(2);
+                    }        
+            
+                    function reset5(){
+                        document.getElementById('sec-result').innerHTML = "";
+                        document.getElementById('sec-radius').value = "";
+                        document.getElementById('sec-angle').value = "";
+            
+                    }
+            
+                    function calculateEllipse() {
+                        var a = parseFloat(document.getElementById('ell-a').value);
+                        var b = parseFloat(document.getElementById('ell-b').value);
+                
+                        // Check if a and b are valid numbers
+                        if (isNaN(a) || isNaN(b)) {
+                            document.getElementById('ell-result').innerHTML = "Please enter valid numbers for both A and B.";
+                            return;
+                        }
+                
+                        var area = Math.PI * a * b;
+                        document.getElementById('ell-result').innerHTML = "Area: " + area.toFixed(2);
+                    }
+            
+                    function reset6(){
+                        document.getElementById('ell-result').innerHTML = "";
+                        document.getElementById('ell-a').value = "";
+                        document.getElementById('ell-b').value = "";
+            
+                    }
+                
+                    function calculateParallelogram() {
+                        var base = parseFloat(document.getElementById('par-base').value);
+                        var height = parseFloat(document.getElementById('par-height').value);
+                
+                        // Check if base and height are valid numbers
+                        if (isNaN(base) || isNaN(height)) {
+                            document.getElementById('par-result').innerHTML = "Please enter valid numbers for both Base and Height.";
+                            return;
+                        }
+                
+                        var area = base * height;
+                        document.getElementById('par-result').innerHTML = "Area: " + area.toFixed(2);
+                    }
+            
+                    function reset7(){
+                        document.getElementById('par-result').innerHTML = "";
+                        document.getElementById('par-base').value = "";
+                        document.getElementById('par-height').value = "";
+            
+                    }
+                </script>
+                
+                <footer class="py-4 bg-dark mt-auto">
+                    <div class="container-fluid px-4">
+                        <div class="d-flex align-items-center justify-content-between small">
+                            <div class="m-0 text-center text-white">Copyright &copy; CalcRafter</div>   
+                        </div>
+                    </div>
+                </footer>
+            </div>
+        </div>
+        <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/js/bootstrap.bundle.min.js" crossorigin="anonymous"></script>
+        <script src="js/scripts.js"></script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.8.0/Chart.min.js" crossorigin="anonymous"></script>
+        <script src="assets/demo/chart-area-demo.js"></script>
+        <script src="assets/demo/chart-bar-demo.js"></script>
+        <script src="assets/demo/chart-pie-demo.js"></script>
+    </body>
+</html>

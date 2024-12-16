@@ -1,0 +1,298 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="utf-8" />
+        <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+        <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no" />
+        <meta name="description" content="" />
+        <meta name="author" content="" />
+        <title>BMI Calculator</title>
+        <link href="css/styles.css" rel="stylesheet" />
+        <script src="https://use.fontawesome.com/releases/v6.3.0/js/all.js" crossorigin="anonymous"></script>
+        <style>
+           
+              .table1 {
+                  margin: 0 auto;
+                  text-align: left;
+              }
+              .th1, .td1 {
+                  border: 1px solid #ddd;
+                  padding: 8px;
+                  text-align: center;
+              }
+              .th {
+                  background-color: #f2f2f2;
+              }
+             
+              .body {
+                font-family: Arial, sans-serif;
+                background-color: #f8f8f8;
+                margin: 0;
+                padding: 0;
+            }
+            
+            .container {
+                max-width: 400px;
+                margin: 50px auto;
+                padding: 20px;
+                border-radius: 10px;
+                background-color: #fff;
+                box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+            }
+            
+            .h2 {
+                text-align: center;
+                color: #333;
+                margin-bottom: 20px;
+            }
+            
+            .label {
+                font-weight: bold;
+                display: block;
+                margin-bottom: 5px;
+                color: #555;
+            }
+            
+            .input[type="number"] {
+                width: 100%;
+                padding: 8px;
+                margin-bottom: 10px;
+                border: 1px solid #ccc;
+                border-radius: 4px;
+                box-sizing: border-box;
+            }
+            
+            .button {
+                width: 100%;
+                padding: 10px;
+                border: none;
+                border-radius: 4px;
+                background-color: #f44336;
+                color: white;
+                cursor: pointer;
+            }
+            
+            .button:hover {
+                background-color: #e53935;
+            }
+            
+            #result {
+                margin-top: 20px;
+                font-weight: bold;
+                text-align: center;
+                color: #333;
+            }
+            
+        </style>
+    </head>
+    <body class="sb-nav-fixed">
+        <nav class="sb-topnav navbar navbar-expand navbar-dark bg-dark">
+            <!-- Sidebar Toggle-->
+            <button class="btn btn-link btn-sm order-1 order-lg-0 me-4 me-lg-0" id="sidebarToggle" href="#!"><i class="fas fa-bars"></i></button>
+             <!-- Navbar Brand-->
+             <a class="navbar-brand ps-3" href="index.html">CalcRafter</a>
+            <!-- Navbar Search-->
+            <form class="d-none d-md-inline-block form-inline ms-auto me-0 me-md-3 my-2 my-md-0">
+                <div class="input-group">
+                    <input class="form-control" type="text" placeholder="Search for..." aria-label="Search for..." aria-describedby="btnNavbarSearch" />
+                    <button class="btn btn-primary" id="btnNavbarSearch" type="button"><i class="fas fa-search"></i></button>
+                </div>
+            </form>
+            <!-- Navbar-->
+            <ul class="navbar-nav ms-auto ms-md-0 me-3 me-lg-4">
+                <li class="nav-item dropdown">
+                    
+                </li>
+            </ul>
+        </nav>
+        <div id="layoutSidenav">
+            <div id="layoutSidenav_nav">
+                <nav class="sb-sidenav accordion sb-sidenav-dark" id="sidenavAccordion">
+                    <div class="sb-sidenav-menu">
+                        <div class="nav">
+                            <div class="sb-sidenav-menu-heading">Core</div>
+                            <a class="nav-link" href="index.html">
+                                <div class="sb-nav-link-icon"><i class="fas fa-tachometer-alt"></i></div>
+                                Dashboard
+                            </a>                               
+                            <div class="collapse" id="collapseLayouts" aria-labelledby="headingOne" data-bs-parent="#sidenavAccordion"></div>
+                            <div class="collapse" id="collapsePages" aria-labelledby="headingTwo" data-bs-parent="#sidenavAccordion"></div>
+
+                            <div class="sb-sidenav-menu-heading">Calculators</div>
+                            <a class="nav-link" href="Math.html">
+                                <div class="sb-nav-link-icon"><i class="fa-solid fa-calculator"></i></div>
+                               Math
+                            </a>
+                            <a class="nav-link" href="Fitness.html">
+                                <div class="sb-nav-link-icon"><i class="fas fa-dumbbell"></i></div>
+                               Fitness
+                            </a>
+                            <a class="nav-link" href="Finance.html">
+                                <div class="sb-nav-link-icon"><i class="fas fa-dollar-sign"></i></div>
+                               Finance
+                            </a>
+                            <a class="nav-link" href="Educational.html">
+                                <div class="sb-nav-link-icon"><i class="fa-solid fa-graduation-cap"></i></div>
+                               Educational
+                            </a>
+                        </div>
+                    </div>
+                    <div class="sb-sidenav-footer">
+                        <div class="small"></div>
+                        CalcRafter.com
+                    </div>
+                </nav>
+            </div>
+            <div id="layoutSidenav_content">
+                
+                
+               
+                <main>
+                    <div class="container-fluid px-4">
+
+                        <div class="container">
+                            <h2>BMI Calculator</h2>
+                            <div class="input-fields">
+                                <center><label for="age">Age:</label>
+                                <input class="input" type="number" id="age" placeholder="Enter your age">
+                                <label class="label" for="gender">Gender:</label>
+                                    <select id="gender" size="1" style="width: 150px;">
+                                        <option value="male">Male</option>
+                                        <option value="female">Female</option>
+                                    </select>
+                                    <br>
+                                    <option value="male">Male</option>
+                                    <option value="female">Female</option>
+                                    <br>
+                                </select>
+                                <label  class="label" for="weight">Weight (kg):</label>
+                                <input class="input" type="number" id="weight" placeholder="Enter weight in kg">
+                                <label class="label" for="height">Height (cm):</label>
+                                <input  class="input" type="number" id="height" placeholder="Enter height in cm">
+                            </div>
+                            <button class="button" onclick="calculateBMI()">Calculate BMI</button>
+                            <div id="result" class="result"></div>
+                        </div>
+                      
+                          <br>
+                          <table class="table">
+                            <tr>
+                                <th class="th1">BMI</th>
+                                <th class="th1">	Weight Category</th>
+                                <th class="th1">Health Risk</th>
+                            </tr>
+                            <tr>
+                                <td class="td1">Below 18.5</td>
+                                <td class="td1">Underweight</td>
+                                <td class="td1">Increased risk of early death, osteoporosis, impaired fertility, etc.</td>
+                            </tr>
+                            <tr>
+                                <td class="td1">18.5 - 24.9</td>
+                                <td class="td1">Healthy weight</td>
+                                <td class="td1">Low risk of health problems</td>
+                            </tr>
+                            <tr>
+                                <td class="td1">25.0 - 29.9</td>
+                                <td class="td1">Overweight</td>
+                                <td class="td1">Increased risk of developing health problems such as type 2 diabetes, heart disease, stroke, certain types of cancer, etc.</td>
+                            </tr>
+                            <tr>
+                              <td   class="td1">30.0 and above</td>
+                              <td   class="td1">Obese</td>
+                              <td   class="td1">Increased risk of serious health problems.</td>
+                          </tr>
+                    
+                        </table>
+                       
+                        
+                            It is important to note that BMI is a general guideline and may not apply to everyone. <br>
+                    
+                    Here are some limitations of BMI:<br>
+                    
+                    Does not distinguish between muscle and fat mass:<br> People with a high muscle mass, such as athletes or bodybuilders, may have a high BMI even though they have a low body fat percentage.
+                    Does not account for body fat distribution: People who carry their weight around their waist (apple-shaped) are at a higher risk for health problems than people who carry their weight around their hips and thighs (pear-shaped)..
+                    May not be accurate for certain populations: BMI may not be as accurate for older adults, pregnant women, or people with very muscular builds or very slender builds..
+                    If you are concerned about your weight or health, it is important to talk to your doctor. They can help you determine your healthy weight range and develop a plan to reach and maintain a healthy weight..
+                    
+
+
+
+
+                    </div>
+                </main>
+                
+                
+                <footer class="py-4 bg-dark mt-auto">
+                    <div class="container-fluid px-4">
+                        <div class="d-flex align-items-center justify-content-between small">
+                            <div class="m-0 text-center text-white">Copyright &copy; CalcRafter</div>   
+                        </div>
+                    </div>
+                </footer>
+            </div>
+        </div>
+        <script>
+            function calculateBMI() {
+                var age = parseInt(document.getElementById('age').value);
+                var gender = document.getElementById('gender').value;
+                var weight = parseFloat(document.getElementById('weight').value);
+                var height = parseFloat(document.getElementById('height').value);
+            
+                if (isNaN(age) || isNaN(weight) || isNaN(height) || age <= 0 || weight <= 0 || height <= 0) {
+                    alert("Please enter valid age, weight, and height values.");
+                    return;
+                }
+            
+                var bmi = calculateBMIFromWeightHeight(weight, height);
+                var result = calculateBMIFromAgeGender(age, gender, bmi);
+            
+                var resultDiv = document.getElementById('result');
+                resultDiv.innerHTML = 'Your BMI is: ' + result.toFixed(2);
+                resultDiv.classList.add('result');
+            }
+            
+            function calculateBMIFromWeightHeight(weight, height) {
+                return weight / ((height / 100) * (height / 100));
+            }
+            
+            function calculateBMIFromAgeGender(age, gender, bmi) {
+                // Adjust BMI based on age and gender
+                if (gender === 'male') {
+                    bmi += 0.1 * (age - 20);
+                } else if (gender === 'female') {
+                    bmi -= 0.1 * (age - 20);
+                }
+                return bmi;
+            }
+            let arrow = document.querySelector('.arrow');
+            
+            function setArrowColor(color) {
+                arrow.style.borderBottomColor = color;
+            }
+            
+            function animateArrow(level) {
+                switch (level) {
+                    case 'good':
+                        setArrowColor('green');
+                        break;
+                    case 'better':
+                        setArrowColor('orange');
+                        break;
+                    case 'best':
+                        setArrowColor('red');
+                        break;
+                    default:
+                        setArrowColor('green');
+                }
+            }
+            
+            
+        </script>
+        <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/js/bootstrap.bundle.min.js" crossorigin="anonymous"></script>
+        <script src="js/scripts.js"></script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.8.0/Chart.min.js" crossorigin="anonymous"></script>
+        <script src="assets/demo/chart-area-demo.js"></script>
+        <script src="assets/demo/chart-bar-demo.js"></script>
+        <script src="assets/demo/chart-pie-demo.js"></script>
+    </body>
+</html>

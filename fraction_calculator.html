@@ -1,0 +1,290 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="utf-8" />
+        <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+        <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no" />
+        <meta name="description" content="" />
+        <meta name="author" content="" />
+        <title>Fractions Calculator</title>
+        <link href="css/styles.css" rel="stylesheet" />
+        <script src="https://use.fontawesome.com/releases/v6.3.0/js/all.js" crossorigin="anonymous"></script>
+        <style>
+          .calculator-box {
+            width: 350px;
+            margin: 640 148 auto;
+            padding: 20px;
+            border: 5px solid #001eff;
+            background-color: #292e32;
+            border-radius: 5px;
+          }
+          
+          .calculator {
+            text-align: center;
+          }
+          
+          .fraction-input {
+            width: 100px;
+          }
+          
+          .button1 {
+            margin-top: 10px;
+            padding: 5px 10px;
+            background-color: #7362f1;
+            color: #fff;
+            border: none;
+            cursor: pointer;
+          }
+          
+          .button1:hover {
+            background-color: #007bff;
+          }
+          
+          #calculation-steps, #mixed-calculation-steps {
+            color: #fff;
+            font-size: 20px;
+
+          }
+
+          .op{
+            color: #fff;
+            font-size: 25px;
+          }
+
+        
+          </style>
+    </head>
+    <div class="container-fluid px-4"></div>
+    <body class="sb-nav-fixed">
+        <nav class="sb-topnav navbar navbar-expand navbar-dark bg-dark">
+            <!-- Sidebar Toggle-->
+            <button class="btn btn-link btn-sm order-1 order-lg-0 me-4 me-lg-0" id="sidebarToggle" href="#!"><i class="fas fa-bars"></i></button>
+             <!-- Navbar Brand-->
+             <a class="navbar-brand ps-3" href="index.html">CalcRafter</a>
+            <!-- Navbar Search-->
+            <form class="d-none d-md-inline-block form-inline ms-auto me-0 me-md-3 my-2 my-md-0">
+                <div class="input-group">
+                    <input class="form-control" type="text" placeholder="Search for..." aria-label="Search for..." aria-describedby="btnNavbarSearch" />
+                    <button class="btn btn-primary" id="btnNavbarSearch" type="button"><i class="fas fa-search"></i></button>
+                </div>
+            </form>
+            <!-- Navbar-->
+            <ul class="navbar-nav ms-auto ms-md-0 me-3 me-lg-4">
+                <li class="nav-item dropdown">
+                    
+                </li>
+            </ul>
+        </nav>
+        <div id="layoutSidenav">
+            <div id="layoutSidenav_nav">
+                <nav class="sb-sidenav accordion sb-sidenav-dark" id="sidenavAccordion">
+                    <div class="sb-sidenav-menu">
+                        <div class="nav">
+                            <div class="sb-sidenav-menu-heading">Core</div>
+                            <a class="nav-link" href="index.html">
+                                <div class="sb-nav-link-icon"><i class="fas fa-tachometer-alt"></i></div>
+                                Dashboard
+                            </a>                               
+                            <div class="collapse" id="collapseLayouts" aria-labelledby="headingOne" data-bs-parent="#sidenavAccordion"></div>
+                            <div class="collapse" id="collapsePages" aria-labelledby="headingTwo" data-bs-parent="#sidenavAccordion"></div>
+
+                            <div class="sb-sidenav-menu-heading">Calculators</div>
+                            <a class="nav-link" href="Math.html">
+                                <div class="sb-nav-link-icon"><i class="fa-solid fa-calculator"></i></div>
+                               Math
+                            </a>
+                            <a class="nav-link" href="Fitness.html">
+                                <div class="sb-nav-link-icon"><i class="fas fa-dumbbell"></i></div>
+                               Fitness
+                            </a>
+                            <a class="nav-link" href="Finance.html">
+                                <div class="sb-nav-link-icon"><i class="fas fa-dollar-sign"></i></div>
+                               Finance
+                            </a>
+                            <a class="nav-link" href="Educational.html">
+                                <div class="sb-nav-link-icon"><i class="fa-solid fa-graduation-cap"></i></div>
+                               Educational
+                            </a>
+                        </div>
+                    </div>
+                    <div class="sb-sidenav-footer">
+                        <div class="small"></div>
+                        CalcRafter.com
+                    </div>
+                </nav>
+            </div>
+            <div id="layoutSidenav_content">
+
+                <main>
+                  <div class="container-fluid px-4">
+                    <h1>Fraction Calculator</h1>
+                    <p>Below are multiple fraction calculators capable of addition, subtraction, multiplication, division, simplification, and conversion between fractions and decimals. Fields above the solid black line represent the numerator, while fields below represent the denominator.</p>
+                    <div class="calculator-box">
+                      <form id="calculator-form" onsubmit="calculate(); return false;">
+                        <div class="calculator">
+                          <div>
+                            <label for="numerator1"></label>
+                            <input type="number" id="numerator1" class="fraction-input" name="numerator1" placeholder="Numerator">
+                            <span class="op">/</span>
+                            <input type="number" id="denominator1" class="fraction-input" name="denominator1" placeholder="Denominator">
+                          </div>
+                          <select id="operator" name="operator">
+                            <option value="+">+</option>
+                            <option value="-">-</option>
+                            <option value="*">*</option>
+                            <option value="/">/</option>
+                          </select>
+                          <div>
+                            <label for="numerator2"></label>
+                            <input type="number" id="numerator2" class="fraction-input" name="numerator2" placeholder="Numerator">
+                            <span class="op">/</span>
+                            <input type="number" id="denominator2" class="fraction-input" name="denominator2" placeholder="Denominator">
+                          </div>
+                          <button class="button1" type="submit">Calculate</button>
+                          <button class="button1" type="reset" onclick="resetForm();">Clear</button>
+                        </div>
+                      </form>
+                      <br>
+                      <div id="calculation-steps"></div>
+                    </div>
+                  </div>
+                  
+                  
+
+                </main>
+                <br><br>
+                
+                <footer class="py-4 bg-dark mt-auto">
+                  <div class="container-fluid px-4">
+                      <div class="d-flex align-items-center justify-content-between small">
+                          <div class="m-0 text-center text-white">Copyright &copy; CalcRafter</div>   
+                      </div>
+                  </div>
+              </footer>
+            </div>
+        </div>
+        <script>
+          function calculate() {
+            var numerator1 = parseInt(document.getElementById("numerator1").value);
+            var denominator1 = parseInt(document.getElementById("denominator1").value);
+            var numerator2 = parseInt(document.getElementById("numerator2").value);
+            var denominator2 = parseInt(document.getElementById("denominator2").value);
+            var operation = document.getElementById("operator").value;
+            var result;
+
+            // Construct equation string
+            var equation = numerator1 + "/" + denominator1 + " " + operation + " " + numerator2 + "/" + denominator2 + " = ";
+
+            switch(operation) {
+              case "+":
+                result = addFractions(numerator1, denominator1, numerator2, denominator2);
+                break;
+              case "-":
+                result = subtractFractions(numerator1, denominator1, numerator2, denominator2);
+                break;
+              case "*":
+                result = multiplyFractions(numerator1, denominator1, numerator2, denominator2);
+                break;
+              case "/":
+                result = divideFractions(numerator1, denominator1, numerator2, denominator2);
+                break;
+              default:
+                result = "Invalid operation";
+            }
+
+            // Display equation and result
+            document.getElementById("calculation-steps").innerText = equation + result;
+          }
+
+          function addFractions(num1, den1, num2, den2) {
+            // Calculate sum
+            var resultNum = num1 * den2 + num2 * den1;
+            var resultDen = den1 * den2;
+
+            // Simplify result
+            var gcd = findGCD(resultNum, resultDen);
+            resultNum /= gcd;
+            resultDen /= gcd;
+
+            // Return result with steps
+            return resultNum + "/" + resultDen ;
+          }
+
+          function subtractFractions(num1, den1, num2, den2) {
+            // Calculate difference
+            var resultNum = num1 * den2 - num2 * den1;
+            var resultDen = den1 * den2;
+
+            // Simplify result
+            var gcd = findGCD(resultNum, resultDen);
+            resultNum /= gcd;
+            resultDen /= gcd;
+
+            // Return result with steps
+            return resultNum + "/" + resultDen ;
+          }
+
+          function multiplyFractions(num1, den1, num2, den2) {
+            // Calculate product
+            var resultNum = num1 * num2;
+            var resultDen = den1 * den2;
+
+            // Simplify result
+            var gcd = findGCD(resultNum, resultDen);
+            resultNum /= gcd;
+            resultDen /= gcd;
+
+            // Return result with steps
+            return resultNum + "/" + resultDen ;
+          }
+
+          function divideFractions(num1, den1, num2, den2) {
+            // Check for division by zero
+            if (num2 === 0) {
+              return "Undefined";
+            }
+
+            // Calculate quotient
+            var resultNum = num1 * den2;
+            var resultDen = den1 * num2;
+
+            // Simplify result
+            var gcd = findGCD(resultNum, resultDen);
+            resultNum /= gcd;
+            resultDen /= gcd;
+
+            // Return result with steps
+            return resultNum + "/" + resultDen;
+          }
+
+          function findGCD(x, y) {
+            // Handle negative numbers
+            x = Math.abs(x);
+            y = Math.abs(y);
+
+            // Find greatest common divisor
+            while (y !== 0) {
+              var temp = y;
+              y = x % y;
+              x = temp;
+            }
+            return x;
+          }
+
+          function resetForm() {
+            document.getElementById("numerator1").value = "";
+            document.getElementById("denominator1").value = "";
+            document.getElementById("numerator2").value = "";
+            document.getElementById("denominator2").value = "";
+            document.getElementById("calculation-steps").innerText = "";
+          }                
+     </script>
+          
+        <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/js/bootstrap.bundle.min.js" crossorigin="anonymous"></script>
+        <script src="js/scripts.js"></script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.8.0/Chart.min.js" crossorigin="anonymous"></script>
+        <script src="assets/demo/chart-area-demo.js"></script>
+        <script src="assets/demo/chart-bar-demo.js"></script>
+        <script src="assets/demo/chart-pie-demo.js"></script>
+    </body>
+</html>

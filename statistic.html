@@ -1,0 +1,379 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="utf-8" />
+        <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+        <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no" />
+        <meta name="description" content="" />
+        <meta name="author" content="" />
+        <title></title>
+        <link href="css/styles.css" rel="stylesheet" />
+        <script src="https://use.fontawesome.com/releases/v6.3.0/js/all.js" crossorigin="anonymous"></script>
+        <title>Statistics Calculator</title>
+        <style>
+            /* CSS for the statistics calculator */
+            .stat-calculator {
+                max-width: 400px;
+                margin: 0 auto;
+                margin-top: 50px;
+                padding: 20px;
+                border: 2px solid #ccc;
+                border-radius: 5px;
+                background-color: #212529;
+            }
+            
+            h2 {
+                text-align: center;
+                margin-top: 20px;
+            }
+            
+            .stat-title {
+                text-align: center;
+                margin-bottom: 20px;
+                color: #fff;
+            }
+    
+            .stat-form-group {
+                margin-bottom: 15px;
+            }
+    
+            .stat-label {
+                display: block;
+                margin-bottom: 5px;
+                color: #fff;
+            }
+    
+            .stat-input {
+                width: 100%;
+                padding: 10px;
+                border: 1px solid #ccc;
+                border-radius: 5px;
+                box-sizing: border-box;
+                background-color: #f9f9f9;
+                color: #333;
+            }
+    
+            .stat-input:focus {
+                outline: none;
+                border-color: #66afe9;
+                box-shadow: 0 0 5px #66afe9;
+            }
+    
+            .stat-buttons {
+                display: flex;
+                flex-wrap: wrap;
+                gap: 10px;
+                justify-content: space-between;
+            }
+    
+            .stat-button {
+                cursor: pointer;
+                background-color: #4caf50;
+                color: #fff;
+                font-size: 16px;
+                transition: background-color 0.3s ease;
+                border: none;
+                border-radius: 5px;
+                padding: 10px 20px;
+                width: calc(33.33% - 10px); /* Adjust button width */
+            }
+    
+            .stat-button:hover {
+                background-color: #45a049;
+            }
+    
+            .stat-result {
+                background-color: #fff;
+                color: #333;
+                font-weight: bold;
+                text-align: center;
+                border: none;
+                cursor: default;
+                width: 100%;
+                padding: 10px;
+                border-radius: 5px;
+                box-sizing: border-box;
+                margin-top: 10px;
+            }
+        </style>
+    </head>
+    <body class="sb-nav-fixed">
+        <nav class="sb-topnav navbar navbar-expand navbar-dark bg-dark">
+            <!-- Sidebar Toggle-->
+            <button class="btn btn-link btn-sm order-1 order-lg-0 me-4 me-lg-0" id="sidebarToggle" href="#!"><i class="fas fa-bars"></i></button>
+             <!-- Navbar Brand-->
+             <a class="navbar-brand ps-3" href="index.html">CalcRafter</a>
+            <!-- Navbar Search-->
+            <form class="d-none d-md-inline-block form-inline ms-auto me-0 me-md-3 my-2 my-md-0">
+                <div class="input-group">
+                    <input class="form-control" type="text" placeholder="Search for..." aria-label="Search for..." aria-describedby="btnNavbarSearch" />
+                    <button class="btn btn-primary" id="btnNavbarSearch" type="button"><i class="fas fa-search"></i></button>
+                </div>
+            </form>
+            <!-- Navbar-->
+            <ul class="navbar-nav ms-auto ms-md-0 me-3 me-lg-4">
+                <li class="nav-item dropdown">
+                    
+                </li>
+            </ul>
+        </nav>
+        <div id="layoutSidenav">
+            <div id="layoutSidenav_nav">
+                <nav class="sb-sidenav accordion sb-sidenav-dark" id="sidenavAccordion">
+                    <div class="sb-sidenav-menu">
+                        <div class="nav">
+                            <div class="sb-sidenav-menu-heading">Core</div>
+                            <a class="nav-link" href="index.html">
+                                <div class="sb-nav-link-icon"><i class="fas fa-tachometer-alt"></i></div>
+                                Dashboard
+                            </a>                               
+                            <div class="collapse" id="collapseLayouts" aria-labelledby="headingOne" data-bs-parent="#sidenavAccordion"></div>
+                            <div class="collapse" id="collapsePages" aria-labelledby="headingTwo" data-bs-parent="#sidenavAccordion"></div>
+
+                            <div class="sb-sidenav-menu-heading">Calculators</div>
+                            <a class="nav-link" href="Math.html">
+                                <div class="sb-nav-link-icon"><i class="fa-solid fa-calculator"></i></div>
+                               Math
+                            </a>
+                            <a class="nav-link" href="Fitness.html">
+                                <div class="sb-nav-link-icon"><i class="fas fa-dumbbell"></i></div>
+                               Fitness
+                            </a>
+                            <a class="nav-link" href="Finance.html">
+                                <div class="sb-nav-link-icon"><i class="fas fa-dollar-sign"></i></div>
+                               Finance
+                            </a>
+                            <a class="nav-link" href="Educational.html">
+                                <div class="sb-nav-link-icon"><i class="fa-solid fa-graduation-cap"></i></div>
+                               Educational
+                            </a>
+                        </div>
+                    </div>
+                    <div class="sb-sidenav-footer">
+                        <div class="small"></div>
+                        CalcRafter.com
+                    </div>
+                </nav>
+            </div>
+            <div id="layoutSidenav_content">
+                
+     
+               
+                <main>
+                    <h2>Statistics Calculator</h2>
+                    <div class="container-fluid px-4">
+                        
+
+
+                        <div class="stat-calculator">
+                            
+                            <div class="stat-form-group">
+                                <label for="stat-values" class="stat-label">Enter values (comma-separated):</label>
+                                <input type="text" id="stat-values" class="stat-input" placeholder="Enter values">
+                            </div>
+                            <div class="stat-buttons">
+                                <button id="stat-mean" class="stat-button">Mean</button>
+                                <button id="stat-median" class="stat-button">Median</button>
+                                <button id="stat-mode" class="stat-button">Mode</button>
+                                <button id="stat-min" class="stat-button">Min</button>
+                                <button id="stat-max" class="stat-button">Max</button>
+                                <button id="stat-range" class="stat-button">Range</button>
+                                <button id="stat-variance" class="stat-button">Variance</button>
+                                <button id="stat-standard-deviation" class="stat-button">Std Deviation</button>
+                                <button id="stat-correlation" class="stat-button">Correlation</button>
+                                <button id="stat-skewness" class="stat-button">Skewness</button>
+                                <button id="stat-kurtosis" class="stat-button">Kurtosis</button>
+                            </div>
+                            <div class="stat-form-group">
+                                <label for="stat-result" class="stat-label">Result:</label>
+                                <input type="text" id="stat-result" class="stat-result" readonly>
+                            </div>
+                        </div>
+                    
+                        <script>
+                            // JavaScript for the statistics calculator
+                            document.addEventListener('DOMContentLoaded', function () {
+                                const valuesInput = document.getElementById('stat-values');
+                                const meanButton = document.getElementById('stat-mean');
+                                const medianButton = document.getElementById('stat-median');
+                                const modeButton = document.getElementById('stat-mode');
+                                const minButton = document.getElementById('stat-min');
+                                const maxButton = document.getElementById('stat-max');
+                                const rangeButton = document.getElementById('stat-range');
+                                const varianceButton = document.getElementById('stat-variance');
+                                const standardDeviationButton = document.getElementById('stat-standard-deviation');
+                                const correlationButton = document.getElementById('stat-correlation');
+                                const skewnessButton = document.getElementById('stat-skewness');
+                                const kurtosisButton = document.getElementById('stat-kurtosis');
+                                const resultInput = document.getElementById('stat-result');
+                    
+                                function calculateMean(values) {
+                                    const sum = values.reduce((acc, curr) => acc + curr, 0);
+                                    return sum / values.length;
+                                }
+                    
+                                function calculateMedian(values) {
+                                    const sortedValues = values.sort((a, b) => a - b);
+                                    const mid = Math.floor(sortedValues.length / 2);
+                                    if (sortedValues.length % 2 === 0) {
+                                        return (sortedValues[mid - 1] + sortedValues[mid]) / 2;
+                                    } else {
+                                        return sortedValues[mid];
+                                    }
+                                }
+                    
+                                function calculateMode(values) {
+                                    const freqMap = {};
+                                    let maxFreq = 0;
+                                    let modes = [];
+                    
+                                    values.forEach(val => {
+                                        freqMap[val] = (freqMap[val] || 0) + 1;
+                                        if (freqMap[val] > maxFreq) {
+                                            maxFreq = freqMap[val];
+                                            modes = [val];
+                                        } else if (freqMap[val] === maxFreq) {
+                                            modes.push(val);
+                                        }
+                                    });
+                    
+                                    return modes;
+                                }
+                    
+                                function calculateMin(values) {
+                                    return Math.min(...values);
+                                }
+                    
+                                function calculateMax(values) {
+                                    return Math.max(...values);
+                                }
+                    
+                                function calculateRange(values) {
+                                    return calculateMax(values) - calculateMin(values);
+                                }
+                    
+                                function calculateVariance(values) {
+                                    const mean = calculateMean(values);
+                                    const squaredDifferencesSum = values.reduce((acc, curr) => acc + Math.pow(curr - mean, 2), 0);
+                                    return squaredDifferencesSum / values.length;
+                                }
+                    
+                                function calculateStandardDeviation(values) {
+                                    return Math.sqrt(calculateVariance(values));
+                                }
+                    
+                                function calculateCorrelation(valuesX, valuesY) {
+                                    // Here, you need two sets of values for correlation calculation
+                                    // For demonstration, I'm assuming the same set of values for both X and Y
+                                    const correlation = calculateCorrelation(valuesX, valuesY);
+                                    resultInput.value = correlation.toFixed(2);
+                                }
+                    
+                                function calculateSkewness(values) {
+                                    const mean = calculateMean(values);
+                                    const variance = calculateVariance(values);
+                                    const standardDeviation = Math.sqrt(variance);
+                                    const n = values.length;
+                                    const skewness = (1 / n) * values.reduce((acc, curr) => acc + Math.pow((curr - mean) / standardDeviation, 3), 0);
+                                    return skewness;
+                                }
+                    
+                                function calculateKurtosis(values) {
+                                    const mean = calculateMean(values);
+                                    const variance = calculateVariance(values);
+                                    const standardDeviation = Math.sqrt(variance);
+                                    const n = values.length;
+                                    const kurtosis = (1 / n) * values.reduce((acc, curr) => acc + Math.pow((curr - mean) / standardDeviation, 4), 0);
+                                    return kurtosis;
+                                }
+                    
+                                meanButton.addEventListener('click', function () {
+                                    const values = valuesInput.value.split(',').map(val => parseFloat(val.trim()));
+                                    const mean = calculateMean(values);
+                                    resultInput.value = mean.toFixed(2);
+                                });
+                    
+                                medianButton.addEventListener('click', function () {
+                                    const values = valuesInput.value.split(',').map(val => parseFloat(val.trim()));
+                                    const median = calculateMedian(values);
+                                    resultInput.value = median.toFixed(2);
+                                });
+                    
+                                modeButton.addEventListener('click', function () {
+                                    const values = valuesInput.value.split(',').map(val => parseFloat(val.trim()));
+                                    const modes = calculateMode(values);
+                                    resultInput.value = modes.join(', ');
+                                });
+                    
+                                minButton.addEventListener('click', function () {
+                                    const values = valuesInput.value.split(',').map(val => parseFloat(val.trim()));
+                                    const min = calculateMin(values);
+                                    resultInput.value = min.toFixed(2);
+                                });
+                    
+                                maxButton.addEventListener('click', function () {
+                                    const values = valuesInput.value.split(',').map(val => parseFloat(val.trim()));
+                                    const max = calculateMax(values);
+                                    resultInput.value = max.toFixed(2);
+                                });
+                    
+                                rangeButton.addEventListener('click', function () {
+                                    const values = valuesInput.value.split(',').map(val => parseFloat(val.trim()));
+                                    const range = calculateRange(values);
+                                    resultInput.value = range.toFixed(2);
+                                });
+                    
+                                varianceButton.addEventListener('click', function () {
+                                    const values = valuesInput.value.split(',').map(val => parseFloat(val.trim()));
+                                    const variance = calculateVariance(values);
+                                    resultInput.value = variance.toFixed(2);
+                                });
+                    
+                                standardDeviationButton.addEventListener('click', function () {
+                                    const values = valuesInput.value.split(',').map(val => parseFloat(val.trim()));
+                                    const standardDeviation = calculateStandardDeviation(values);
+                                    resultInput.value = standardDeviation.toFixed(2);
+                                });
+                    
+                                correlationButton.addEventListener('click', function () {
+                                    const values = valuesInput.value.split(',').map(val => parseFloat(val.trim()));
+                                    const correlation = calculateCorrelation(values, values); // For demonstration purposes, using the same values for both X and Y
+                                    resultInput.value = correlation.toFixed(2);
+                                });
+                    
+                                skewnessButton.addEventListener('click', function () {
+                                    const values = valuesInput.value.split(',').map(val => parseFloat(val.trim()));
+                                    const skewness = calculateSkewness(values);
+                                    resultInput.value = skewness.toFixed(2);
+                                });
+                    
+                                kurtosisButton.addEventListener('click', function () {
+                                    const values = valuesInput.value.split(',').map(val => parseFloat(val.trim()));
+                                    const kurtosis = calculateKurtosis(values);
+                                    resultInput.value = kurtosis.toFixed(2);
+                                });
+                            });
+                        </script>
+
+
+                    </div>
+                </main>
+                
+                
+                <footer class="py-4 bg-dark mt-auto">
+                    <div class="container-fluid px-4">
+                        <div class="d-flex align-items-center justify-content-between small">
+                            <div class="m-0 text-center text-white">Copyright &copy; CalcRafter</div>   
+                        </div>
+                    </div>
+                </footer>
+            </div>
+        </div>
+        <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/js/bootstrap.bundle.min.js" crossorigin="anonymous"></script>
+        <script src="js/scripts.js"></script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.8.0/Chart.min.js" crossorigin="anonymous"></script>
+        <script src="assets/demo/chart-area-demo.js"></script>
+        <script src="assets/demo/chart-bar-demo.js"></script>
+        <script src="assets/demo/chart-pie-demo.js"></script>
+    </body>
+</html>

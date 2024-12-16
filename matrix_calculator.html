@@ -1,0 +1,711 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="utf-8" />
+        <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+        <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no" />
+        <meta name="description" content="" />
+        <meta name="author" content="" />
+        <title>Matrix Calculator</title>
+        <link href="css/styles.css" rel="stylesheet" />
+        <script src="https://use.fontawesome.com/releases/v6.3.0/js/all.js" crossorigin="anonymous"></script>
+        <style>
+            .matrixA, .matrixB, .results {
+                width: 400px;
+                margin: 640 148 auto;
+                padding: 20px;
+                border: 5px solid #001eff;
+                background-color: #292e32;
+                border-radius: 5px;
+                color: white;
+                margin-top: 20px;
+            }
+            
+            .create-btn {
+                padding: 8px 16px;
+                border-radius: 5px;   
+                border: none;
+                cursor: pointer;
+                font-size: 16px;
+                margin-top: 10px;
+                margin-left: 75px;
+                background-color: #007bff;
+                color: #ffffff;
+                
+            }
+        
+            .reset-btn {
+                padding: 8px 16px;
+                border-radius: 5px;   
+                border: none;
+                cursor: pointer;
+                font-size: 16px;
+                margin-top: 10px; 
+                margin-left: 5px;
+                background-color: #ff0000;
+                color: #ffffff;
+                
+            }
+        
+            .reset-btn:hover {
+                background-color: #ff7d7d;
+            }
+        
+            .create-btn:hover {
+                background-color: hsl(211, 100%, 72%);
+            }
+        
+            .operation-btn {
+                padding: 8px 16px;
+                border-radius: 5px;   
+                border: none;
+                cursor: pointer;
+                font-size: 16px;
+                margin-top: 5px;
+                margin-left: 10px;
+                margin-right: auto;
+                background-color: #018a21;
+                color: #ffffff;
+            }
+        
+            .operation-btn1 {
+                padding: 8px 16px;
+                border-radius: 5px;   
+                border: none;
+                cursor: pointer;
+                font-size: 16px;
+                margin-top: 5px;
+                margin-left: 60px;
+                margin-right: -40px;
+                background-color: #018a21;
+                color: #ffffff;
+            }
+        
+            .numberInput {
+                margin-left: 110px;
+                margin-top: 10px;
+                margin-bottom: 10px;
+                margin-right: -105px;
+                color: #000000;
+                font-size: 15px;
+                width: 50px;
+                height: 35px;
+                border: none;
+                padding: 8px 16px;
+                border-radius: 5px; 
+                
+            }
+        
+            input[type="number"]::-webkit-inner-spin-button,
+            input[type="number"]::-webkit-outer-spin-button {
+                -webkit-appearance: none;
+                margin: 0;
+                }
+            input[type="number"] {
+                -moz-appearance: textfield;
+                }
+            
+                
+            .mA, .mB {
+                width: 330px;
+                margin: 640 148 auto;
+                padding: 20px;
+                border-radius: 5px;
+                color: white;
+                margin-top: 20px;
+               
+            }
+        
+            .mA input[type="number"] , .mB input[type="number"] {
+                width: 55px;
+                border: 5px solid #292e32;
+                border-radius: 5px;
+                margin-left: 50px;
+                margin-right: -45px;
+            }
+            
+            #result{
+                margin-top: 0px;   
+                margin-right: 60px;  
+                text-align: center;
+                color: #fff;
+                font-size: 20px;
+            }
+        </style>
+    </head>
+    <body class="sb-nav-fixed">
+        <nav class="sb-topnav navbar navbar-expand navbar-dark bg-dark">
+            <!-- Sidebar Toggle-->
+            <button class="btn btn-link btn-sm order-1 order-lg-0 me-4 me-lg-0" id="sidebarToggle" href="#!"><i class="fas fa-bars"></i></button>
+             <!-- Navbar Brand-->
+             <a class="navbar-brand ps-3" href="index.html">CalcRafter</a>
+            <!-- Navbar Search-->
+            <form class="d-none d-md-inline-block form-inline ms-auto me-0 me-md-3 my-2 my-md-0">
+                <div class="input-group">
+                    <input class="form-control" type="text" placeholder="Search for..." aria-label="Search for..." aria-describedby="btnNavbarSearch" />
+                    <button class="btn btn-primary" id="btnNavbarSearch" type="button"><i class="fas fa-search"></i></button>
+                </div>
+            </form>
+            <!-- Navbar-->
+            <ul class="navbar-nav ms-auto ms-md-0 me-3 me-lg-4">
+                <li class="nav-item dropdown">
+                    
+                </li>
+            </ul>
+        </nav>
+        <div id="layoutSidenav">
+            <div id="layoutSidenav_nav">
+                <nav class="sb-sidenav accordion sb-sidenav-dark" id="sidenavAccordion">
+                    <div class="sb-sidenav-menu">
+                        <div class="nav">
+                            <div class="sb-sidenav-menu-heading">Core</div>
+                            <a class="nav-link" href="index.html">
+                                <div class="sb-nav-link-icon"><i class="fas fa-tachometer-alt"></i></div>
+                                Dashboard
+                            </a>                               
+                            <div class="collapse" id="collapseLayouts" aria-labelledby="headingOne" data-bs-parent="#sidenavAccordion"></div>
+                            <div class="collapse" id="collapsePages" aria-labelledby="headingTwo" data-bs-parent="#sidenavAccordion"></div>
+
+                            <div class="sb-sidenav-menu-heading">Calculators</div>
+                            <a class="nav-link" href="Math.html">
+                                <div class="sb-nav-link-icon"><i class="fa-solid fa-calculator"></i></div>
+                               Math
+                            </a>
+                            <a class="nav-link" href="Fitness.html">
+                                <div class="sb-nav-link-icon"><i class="fas fa-dumbbell"></i></div>
+                               Fitness
+                            </a>
+                            <a class="nav-link" href="Finance.html">
+                                <div class="sb-nav-link-icon"><i class="fas fa-dollar-sign"></i></div>
+                               Finance
+                            </a>
+                            <a class="nav-link" href="Educational.html">
+                                <div class="sb-nav-link-icon"><i class="fa-solid fa-graduation-cap"></i></div>
+                               Educational
+                            </a>
+                        </div>
+                    </div>
+                    <div class="sb-sidenav-footer">
+                        <div class="small"></div>
+                        CalcRafter.com
+                    </div>
+                </nav>
+            </div>
+            <div id="layoutSidenav_content">
+                
+               
+               
+                <main>
+                    <div class="container-fluid px-4">
+
+                        <h1>Matrix Calculator</h1>
+                            <div class="matrixA">
+                                <h3>Matrix A</h3>
+                                <input class="numberInput" type="number" id="rowsA" placeholder="R" value="4"> 
+                                <input class="numberInput" type="number" id="colsA" placeholder="C" value="4"><br>
+                                <button class="create-btn" onclick="createMatrix('A')">Create Matrix</button>
+                                <button class="reset-btn" onclick="resetA()">Clear</button><br>
+                                <div class="mA" id="matrixA"></div>
+                                <button class="operation-btn" onclick="transpose('A')">Transpose</button>
+                                <button class="operation-btn" onclick="determinant('A')">Determinant</button>
+                                <button class="operation-btn" onclick="inverse('A')">Inverse</button>
+                                
+                            </div><br>
+
+                            
+
+                            <div class="matrixB">
+                                <h3>Matrix B</h3>
+                                <input class="numberInput" type="number" id="rowsB" placeholder="R" value="4">
+                                <input class="numberInput" type="number" id="colsB" placeholder="C" value="4"><br>
+                                <button class="create-btn" onclick="createMatrix('B')">Create Matrix</button>
+                                <button class="reset-btn" onclick="resetB()">Clear</button><br>
+                                <div class="mB" id="matrixB"></div>
+                                <button class="operation-btn" onclick="transpose('B')">Transpose</button>
+                                <button class="operation-btn" onclick="determinant('B')">Determinant</button>
+                                <button class="operation-btn" onclick="inverse('B')">Inverse</button>
+                                
+                            </div><br>
+                            
+                            <div class="operations">
+                                <button class="operation-btn1" onclick="addMatrices()">A + B</button>
+                                <button class="operation-btn1" onclick="subtractMatrices()">A - B</button>
+                                <button class="operation-btn1" onclick="multiplyMatrices()">A * B</button>
+                            </div>
+
+                            <div class="results">
+                                <h3>Results</h3>
+                                
+                                <div id="result"></div>
+                            </div>
+                            <br>
+                            <h3>Matrix</h3>
+                            <p>A matrix is a rectangular array of numbers, symbols, or expressions, arranged in rows and columns.</p>
+                            
+                                <p>More about matrices:</p>
+                                <ul>
+                                    <li>Matrices are represented by a grid of numbers, symbols, or expressions.</li>
+                                    <li>Each number, symbol, or expression is called an element of the matrix.</li>
+                                    <li>The rows and columns of a matrix are called dimensions.</li>
+                                    <li>Matrices can be used in many mathematical operations, such as addition, subtraction, multiplication, and more.</li>
+                                    <li>Matrices are used in fields like physics, engineering, computer science, and more.</li>
+                                    <li>Matrices can represent linear transformations, angles, displacements, and more.</li>
+                                </ul>
+                            
+
+                            <h3>Matrix Addition</h3>
+                            <p>Matrices can be added together to create a new matrix.</p>
+                            <h4>Example</h4>
+                            
+                                <table style="table-layout: fixed; border: 1px solid #000000;">
+                                    <tr>
+                                        <th style="border: 1px solid #000000;">A</th>
+                                        <th style="border: 1px solid #000000;">B</th>
+                                        <th>A + B</th>
+                                    </tr>
+                                    <tr>
+                                        <td style="border: 1px solid #000000;">
+                                            <table style="table-layout: fixed;">
+                                                <tr>
+                                                    <td style="width: 50px;">1</td>
+                                                    <td style="width: 50px;">2</td>
+                                                </tr>
+                                                <tr>
+                                                    <td style="width: 50px;">3</td>
+                                                    <td style="width: 50px;">4</td>
+                                                </tr>
+                                            </table>
+                                        </td>
+                                        <td style="border: 1px solid #000000;">
+                                            <table style="table-layout: fixed;">
+                                                <tr>
+                                                    <td style="width: 50px;">5</td>
+                                                    <td style="width: 50px;">6</td>
+                                                </tr>
+                                                <tr>
+                                                    <td style="width: 50px;">7</td>
+                                                    <td style="width: 50px;">8</td>
+                                                </tr>
+                                            </table>
+                                        </td>
+                                        <td style="border: 1px solid #000000;">
+                                            <table style="table-layout: fixed;">
+                                                <tr >
+                                                    <td style="width: 50px; ">6</td>
+                                                    <td style="width: 50px;">8</td>
+                                                </tr>
+                                                <tr>
+                                                    <td style="width: 50px;">10</td>
+                                                    <td style="width: 50px;">12</td>
+                                                </tr>
+                                            </table>
+                                        </td>
+                                    </tr>
+                                </table>
+                                <p>a1,1 + b1,1 = 1 + 5 = 6 = c1,1 <br>
+                                    a1,2 + b1,2 = 2 + 6 = 8 = c1,2 <br>
+                                    a2,1 + b2,1 = 3 + 7 = 10 = c2,1 <br>
+                                    a2,2 + b2,2 = 4 + 8 = 12 = c2,2 
+                                    </p>
+                                <br>
+                            <h3>Matrix Substraction</h3>
+                            <p>Matrices can be subtracted from each other to create a new matrix.</p>
+                            <h4>Example</h4>
+                            
+                                <table style="table-layout: fixed; border: 1px solid #000000;">
+                                    <tr>
+                                        <th style="border: 1px solid #000000;">A</th>
+                                        <th style="border: 1px solid #000000;">B</th>
+                                        <th>A - B</th>
+                                    </tr>
+                                    <tr>
+                                        <td style="border: 1px solid #000000;">
+                                            <table style="table-layout: fixed;">
+                                                <tr>
+                                                    <td style="width: 50px;">1</td>
+                                                    <td style="width: 50px;">2</td>
+                                                </tr>
+                                                <tr>
+                                                    <td style="width: 50px;">3</td>
+                                                    <td style="width: 50px;">4</td>
+                                                </tr>
+                                            </table>
+                                        </td>
+                                        <td style="border: 1px solid #000000;">
+                                            <table style="table-layout: fixed;">
+                                                <tr>
+                                                    <td style="width: 50px;">5</td>
+                                                    <td style="width: 50px;">6</td>
+                                                </tr>
+                                                <tr>
+                                                    <td style="width: 50px;">7</td>
+                                                    <td style="width: 50px;">8</td>
+                                                </tr>
+                                            </table>
+                                        </td>
+                                        <td style="border: 1px solid #000000;">
+                                            <table style="table-layout: fixed;">
+                                                <tr>
+                                                    <td style="width: 50px;">-4</td>
+                                                    <td style="width: 50px;">-4</td>
+                                                </tr>
+                                                <tr>
+                                                    <td style="width: 50px;">-4</td>
+                                                    <td style="width: 50px;">-4</td>
+                                                </tr>
+                                            </table>
+                                        </td>
+                                    </tr>
+                                </table>
+                                
+                                <p>
+                                    a1,1 - b1,1 = 1 - 5 = -4 = c1,1 <br>
+                                    a1,2 - b1,2 = 2 - 6 = -4 = c1,2 <br>
+                                    a2,1 - b2,1 = 3 - 7 = -4 = c2,1 <br>
+                                    a2,2 - b2,2 = 4 - 8 = -4 = c2,2
+                                </p>
+                                
+                                <br>
+                                <h3>Matrix Multiplication</h3>
+                                <p>Matrices can be multiplied together to create a new matrix.</p>
+                                <h4>Example</h4>
+                                
+                                <table style="table-layout: fixed; border: 1px solid #000000;">
+                                    <tr>
+                                        <th style="border: 1px solid #000000;">A</th>
+                                        <th style="border: 1px solid #000000;">B</th>
+                                        <th>A x B</th>
+                                    </tr>
+                                    <tr>
+                                        <td style="border: 1px solid #000000;">
+                                            <table style="table-layout: fixed;">
+                                                <tr>
+                                                    <td style="width: 50px;">1</td>
+                                                    <td style="width: 50px;">2</td>
+                                                </tr>
+                                                <tr>
+                                                    <td style="width: 50px;">3</td>
+                                                    <td style="width: 50px;">4</td>
+                                                </tr>
+                                            </table>
+                                        </td>
+                                        <td style="border: 1px solid #000000;">
+                                            <table style="table-layout: fixed;">
+                                                <tr>
+                                                    <td style="width: 50px;">5</td>
+                                                    <td style="width: 50px;">6</td>
+                                                </tr>
+                                                <tr>
+                                                    <td style="width: 50px;">7</td>
+                                                    <td style="width: 50px;">8</td>
+                                                </tr>
+                                            </table>
+                                        </td>
+                                        <td style="border: 1px solid #000000;">
+                                            <table style="table-layout: fixed;">
+                                                <tr>
+                                                    <td style="width: 50px;">19</td>
+                                                    <td style="width: 50px;">22</td>
+                                                </tr>
+                                                <tr>
+                                                    <td style="width: 50px;">43</td>
+                                                    <td style="width: 50px;">50</td>
+                                                </tr>
+                                            </table>
+                                        </td>
+                                    </tr>
+                                </table>
+                                
+                                <p>
+                                    c1,1 = 1×5 + 2×7 = 19   <br>
+                                    c1,2 = 1×6 + 2×8  = 22  <br>
+                                    c2,1 = 3×5 + 4×7  = 43  <br>
+                                    c2,2 = 3×6 + 4×8  = 50 
+                                </p>
+                                <br>
+                                <h3>Transposed of a Matrix</h3>
+                                <p>A transposed matrix is a matrix with rows and columns swapped.</p>
+                                <h4>Example</h4>
+                                <p>
+                                    The transpose of a matrix, typically indicated with a "T" as an exponent, is an operation that flips a matrix over its diagonal. This results in switching the row and column indices of a matrix, meaning that aij in matrix A, becomes aji in AT. If necessary, refer above for a description of the notation used.
+
+                                    An m × n matrix, transposed, would therefore become an n × m matrix.
+                                </p>
+                                <table style="table-layout: fixed; border: 1px solid #000000;">
+                                   <b>Original Matrix (A)</b> 
+                                    <tr style="border: 1px solid #000000; ">
+                                      <td style="padding-right: 1em; border: 1px solid #000000;">1</td>
+                                      <td style="padding-right: 1em; border: 1px solid #000000;">2</td>
+                                      <td style="padding-right: 1em; border: 1px solid #000000;">3</td>
+                                    </tr>
+                                    <tr style="border: 1px solid #000000; ">
+                                      <td style="padding-right: 1em; border: 1px solid #000000;">4</td>
+                                      <td style="padding-right: 1em; border: 1px solid #000000;">5</td>
+                                      <td style="padding-right: 1em; border: 1px solid #000000;">6</td>
+                                    </tr>
+                                  </table>
+                                  
+                                  <!-- Transpose Matrix -->
+                                  <table  style="table-layout: fixed; border: 1px solid #000000;">
+                                    <b>Transpose Matrix (A<sup>T</sup>)</b>
+                                    <tr style="border: 1px solid #000000;">
+                                      <td style="padding-right: 1em; border: 1px solid #000000;">1</td>
+                                      <td style="padding-right: 1em; border: 1px solid #000000;">4</td>
+                                    </tr>
+                                    <tr style="border: 1px solid #000000;">
+                                      <td style="padding-right: 1em; border: 1px solid #000000;">2</td>
+                                      <td style="padding-right: 1em; border: 1px solid #000000;">5</td>
+                                    </tr>
+                                    <tr style="border: 1px solid #000000;">
+                                      <td style="padding-right: 1em; border: 1px solid #000000;">3</td>
+                                      <td style="padding-right: 1em; border: 1px solid #000000;">6</td>
+                                    </tr>
+                                  </table>
+                                  <br>
+                                  
+                                  <h3>Determinant of a Matrix</h3>
+                                  <p> The determinant of a matrix is a value that can be computed from the elements of a square matrix. It is used in linear algebra, calculus, and other mathematical contexts. For example, the determinant can be used to compute the inverse of a matrix or to solve a system of linear equations. </p>
+
+                                  <p> There are a number of methods and formulas for calculating the determinant of a matrix. The Leibniz formula and the Laplace formula are two commonly used formulas.</p>
+
+                                  <br>
+
+                                  <h3>Inverse of a Matrix</h3>
+                                  <p> The inverse of a matrix is a matrix that, when multiplied by the original matrix, results in the identity matrix. In other words, AX = I, where A is the original matrix, X is the inverse matrix, and I is the identity matrix. If a matrix does not have an inverse, then it is said to be non-invertible. </p>
+                                    
+                                  
+                    </div>      
+                </main>
+                <br>
+                
+                <footer class="py-4 bg-dark mt-auto">
+                    <div class="container-fluid px-4">
+                        <div class="d-flex align-items-center justify-content-between small">
+                            <div class="m-0 text-center text-white">Copyright &copy; CalcRafter</div>   
+                        </div>
+                    </div>
+                </footer>
+            </div>
+        </div>
+        <script>
+            function createMatrix(matrixName) {
+                var rows = parseInt(document.getElementById('rows' + matrixName).value);
+                var cols = parseInt(document.getElementById('cols' + matrixName).value);
+                
+                var matrix = document.getElementById('matrix' + matrixName);
+                matrix.innerHTML = '';
+                
+                for (var i = 0; i < rows; i++) {
+                    var row = document.createElement('div');
+                    for (var j = 0; j < cols; j++) {
+                        var input = document.createElement('input');
+                        input.type = 'number';
+                        input.setAttribute('placeholder', matrixName + '(' + (i + 1) + ',' + (j + 1) + ')');
+                        row.appendChild(input);
+                    }
+                    matrix.appendChild(row);
+                }
+            }
+            
+            function getMatrixValues(matrixName) {
+                var matrix = document.getElementById('matrix' + matrixName);
+                var rows = matrix.children.length;
+                var cols = matrix.children[0].children.length;
+                var matrixValues = [];
+                for (var i = 0; i < rows; i++) {
+                    matrixValues.push([]);
+                    for (var j = 0; j < cols; j++) {
+                        matrixValues[i].push(parseFloat(matrix.children[i].children[j].value));
+                    }
+                }
+                return matrixValues;
+            }
+            
+            function addMatrices() {
+                var matrixA = getMatrixValues('A');
+                var matrixB = getMatrixValues('B');
+                var result = [];
+                for (var i = 0; i < matrixA.length; i++) {
+                    result.push([]);
+                    for (var j = 0; j < matrixA[i].length; j++) {
+                        result[i].push(matrixA[i][j] + matrixB[i][j]);
+                    }
+                }
+                document.getElementById('result').innerText = JSON.stringify(result);
+            }
+            
+            function subtractMatrices() {
+                var matrixA = getMatrixValues('A');
+                var matrixB = getMatrixValues('B');
+                var result = [];
+                for (var i = 0; i < matrixA.length; i++) {
+                    
+                    result.push([]);
+                    for (var j = 0; j < matrixA[i].length; j++) {
+                        
+                        result[i].push(matrixA[i][j] - matrixB[i][j]);
+        
+                    }
+                }
+                document.getElementById('result').innerText = JSON.stringify(result); 
+            }
+        
+            function multiplyMatrices() {
+                var matrixA = getMatrixValues('A');
+                var matrixB = getMatrixValues('B');
+                var result = [];
+            
+                for (var i = 0; i < matrixA.length; i++) {
+                    result.push([]);
+                    for (var j = 0; j < matrixB[0].length; j++) {
+                        var sum = 0;
+                        for (var k = 0; k < matrixB.length; k++) {
+                            sum += matrixA[i][k] * matrixB[k][j];
+                        }
+                        result[i].push(sum);
+                    }
+                }
+                
+                document.getElementById('result').innerText = JSON.stringify(result);
+            }
+        
+            function transpose(matrixName){
+                var matrix = getMatrixValues(matrixName);
+                var result = [];
+                for (var i = 0; i < matrix.length; i++) {
+                    
+                    result.push([]);
+                    for (var j = 0; j < matrix[i].length; j++) {
+                        
+                        result[i].push(matrix[j][i]);
+                    }
+                }
+                document.getElementById('result').innerText = JSON.stringify(result);
+            }
+            
+            function determinant(matrixName){
+                var matrix = getMatrixValues(matrixName);
+                var result = calculateDeterminant(matrix);
+                document.getElementById('result').innerText = result;
+            }
+            
+            function calculateDeterminant(matrix) {
+                if(matrix.length !== matrix[0].length) {
+                    return "Error: Determinant can only be calculated for square matrices.";
+                }
+            
+                if(matrix.length === 1) {
+                    return matrix[0][0];
+                }
+            
+                if(matrix.length === 2) {
+                    return matrix[0][0] * matrix[1][1] - matrix[0][1] * matrix[1][0];
+                }
+            
+                var det = 0;
+                for(var i = 0; i < matrix.length; i++) {
+                    var sign = (i % 2 === 0) ? 1 : -1;
+                    var subMatrix = getSubMatrix(matrix, i);
+                    det += sign * matrix[0][i] * calculateDeterminant(subMatrix);
+                }
+                return det;
+            }
+            
+            function getSubMatrix(matrix, colToRemove) {
+                var subMatrix = [];
+                for(var i = 1; i < matrix.length; i++) {
+                    var newRow = [];
+                    for(var j = 0; j < matrix[i].length; j++) {
+                        if(j !== colToRemove) {
+                            newRow.push(matrix[i][j]);
+                        }
+                    }
+                    subMatrix.push(newRow);
+                }
+                return subMatrix;
+            }
+            
+            function inverse(matrixName){
+                var matrix = getMatrixValues(matrixName);
+                var result = calculateInverse(matrix);
+                document.getElementById('result').innerText = JSON.stringify(result);
+            }
+            
+            function calculateInverse(matrix) {
+                if(matrix.length !== matrix[0].length) {
+                    return "Error: Inverse can only be calculated for square matrices.";
+                }
+            
+                var det = calculateDeterminant(matrix);
+                if(det === 0) {
+                    return "Error: Inverse does not exist.";
+                }
+            
+                var inv = [];
+                for(var i = 0; i < matrix.length; i++) {
+                    inv[i] = [];
+                    for(var j = 0; j < matrix[i].length; j++) {
+                        var subMatrix = getSubMatrix(matrix, i, j);
+                        var subDeterminant = calculateDeterminant(subMatrix);
+                        var sign = ((i + j) % 2 === 0) ? 1 : -1;
+                        inv[i][j] = sign * subDeterminant / det;
+                    }
+                }
+            
+                // Transpose the resulting matrix to get the final inverse
+                inv = transposeMatrix(inv);
+            
+                return inv;
+            }
+            
+            function getSubMatrix(matrix, rowToRemove, colToRemove) {
+                var subMatrix = [];
+                for(var i = 0; i < matrix.length; i++) {
+                    if(i !== rowToRemove) {
+                        var newRow = [];
+                        for(var j = 0; j < matrix[i].length; j++) {
+                            if(j !== colToRemove) {
+                                newRow.push(matrix[i][j]);
+                            }
+                        }
+                        subMatrix.push(newRow);
+                    }
+                }
+                return subMatrix;
+            }
+            
+            function transposeMatrix(matrix) {
+                var transposedMatrix = [];
+                for(var i = 0; i < matrix.length; i++) {
+                    transposedMatrix[i] = [];
+                    for(var j = 0; j < matrix[i].length; j++) {
+                        transposedMatrix[i][j] = matrix[j][i];
+                    }
+                }
+                return transposedMatrix;
+            }
+        
+            function resetA(){
+                document.getElementById('matrixA').innerHTML = '';
+                document.getElementById('rowsA').value = '';
+                document.getElementById('colsA').value = '';
+        
+            }
+        
+            function resetB(){
+                document.getElementById('matrixB').innerHTML = '';
+                document.getElementById('rowsB').value = '';
+                document.getElementById('colsB').value = '';
+            }
+        
+        
+            
+        </script>
+        <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/js/bootstrap.bundle.min.js" crossorigin="anonymous"></script>
+        <script src="js/scripts.js"></script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.8.0/Chart.min.js" crossorigin="anonymous"></script>
+        <script src="assets/demo/chart-area-demo.js"></script>
+        <script src="assets/demo/chart-bar-demo.js"></script>
+        <script src="assets/demo/chart-pie-demo.js"></script>
+    </body>
+</html>

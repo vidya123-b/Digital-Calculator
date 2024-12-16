@@ -1,0 +1,166 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Healthy Weight Calculator</title>
+<style>
+    .body {
+        font-family: Arial, sans-serif;
+        margin: 0;
+        padding: 0;
+        background-color: #f4f4f4;
+    }
+
+    .calculator {
+        max-width: 400px;
+        margin: 50px auto;
+        padding: 20px;
+        background-color: #fff;
+        border-radius: 5px;
+        box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+    }
+
+    .h1 {
+        font-size: 24px;
+        margin-bottom: 20px;
+    }
+
+    .label {
+        display: block;
+        margin-bottom: 5px;
+    }
+
+    .input[type="number"] {
+        width: 100%;
+        padding: 8px;
+        margin-bottom: 10px;
+        border: 1px solid #ccc;
+        border-radius: 4px;
+        box-sizing: border-box;
+    }
+
+    .button {
+        display: block;
+        width: 100%;
+        padding: 10px;
+        background-color: #e53838;
+        color: #fff;
+        border: none;
+        border-radius: 4px;
+        cursor: pointer;
+    }
+
+    .button:hover {
+        background-color: #e25a5a;
+    }
+
+    #result {
+        margin-top: 20px;
+        font-weight: bold;
+    }
+</style>
+</head>
+<body class="body">
+<div class="calculator">
+    <h1 class="h1">Healthy Weight Calculator</h1>
+    <div>
+        <label class="label" for="height">Height (cm):</label>
+        <input class="input" type="number" id="height" placeholder="Height" min="1" required>
+    </div>
+    <div>
+        <label class="label" for="age">Age:</label>
+        <input class="input" type="number" id="age" placeholder="Age" min="1" required>
+    </div>
+    <div>
+        <label class="label" for="gender">Gender:</label>
+        <select id="gender" required>
+            <option value="male">Male</option>
+            <option value="female">Female</option>
+        </select>
+        <br>
+        <br>
+    </div>
+    <button class="button" onclick="calculateHealthyWeight()">Calculate</button>
+    <div id="result"></div>
+</div>
+
+<script>
+    function calculateHealthyWeight() {
+        const height = parseFloat(document.getElementById('height').value);
+        const age = parseFloat(document.getElementById('age').value);
+        const gender = document.getElementById('gender').value;
+
+        let healthyWeight;
+        if (gender === 'male') {
+            healthyWeight = (height - 100) - ((height - 100) * 0.1);
+        } else {
+            healthyWeight = (height - 100) - ((height - 100) * 0.15);
+        }
+
+        document.getElementById('result').innerText = `Your healthy weight range is ${healthyWeight.toFixed(2)} kg to ${(healthyWeight + 10).toFixed(2)} kg`;
+    }
+</script>
+
+<p>
+   <b> Age</b>
+   <br>
+   <br>
+
+In theory, age shouldn't be a large determinant of an IBW past the ages of 14-15 for girls and 16-17 for boys
+, after which most people stop growing. It is actually expected that human males and females lose 1.5 and 2 inches in height respectively
+ by age 70. It is important to remember that as people age, lean muscle mass decreases and it is easier to accumulate excess body fat.
+  This is a natural process, though it is possible to lessen the effects of aging by adopting various habits such as monitoring diet,
+ exercise, stress, and sleep.
+</p>
+
+<p>
+   <b> Gender </b>
+   <br><br>
+
+Generally, females weigh less than males even though they naturally have a higher percentage of body fat.
+ This is because the male body generally has higher muscle mass, and muscle is heavier than fat.
+ Not only that, but women generally have lower bone density. Last but not least, males tend to be taller than females.
+
+</p>
+<p>
+
+    Body Frame Size
+
+Body frame size is another factor that can have a significant impact on the measurement of ideal weight.
+ Body frame size is typically categorized as small, medium, or large boned.
+ It is measured based on the circumference of a person's wrist in relation to their height, as shown below.
+<br><Br>
+<b>For women:</b>
+
+<ul>
+    <li>Height under 5'2"</li>
+<li>Small boned = wrist size less than 5.5"</li>
+<li>Medium boned = wrist size 5.5" to 5.75"</li>
+<li>Large boned = wrist size over 5.75"</li>
+<li>Height between 5'2" and 5' 5"</li>
+<li>Small boned = wrist size less than 6"</li>
+<li>Medium boned = wrist size 6" to 6.25"</li>
+<li>Large boned = wrist size over 6.25"</li>
+<li>Height over 5' 5"</li>
+<li>Small boned = wrist size less than 6.25"</li>
+<li>Medium boned = wrist size 6.25" to 6.5"</li>
+<li>Large boned = wrist size over 6.5"</li>
+</ul>
+<br>
+<br>
+<b>For men:</b>
+<ul>
+<li>Height over 5' 5"</li>
+<li>Small boned = wrist size 5.5" to 6.5"</li>
+<li>Medium boned = wrist size 6.5" to 7.5"</li>
+<li>Large boned = wrist size over 7.5"</li>
+
+</ul>
+A person who is large boned will naturally weigh more than someone who is small boned, even at the same height,
+ making body frame size a factor that can affect measurements such as IBW and BMI.
+
+</p>
+</body>
+</html>

@@ -1,0 +1,257 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="utf-8" />
+        <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+        <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no" />
+        <meta name="description" content="" />
+        <meta name="author" content="" />
+        <title>Body Fat Calculator</title>
+        <link href="css/styles.css" rel="stylesheet" />
+        <script src="https://use.fontawesome.com/releases/v6.3.0/js/all.js" crossorigin="anonymous"></script>
+        <style>
+            .table1 {
+                width: 100%;
+                border-collapse: collapse;
+            }
+            .th1, .td1 {
+                border: 1px solid #ddd;
+                padding: 8px;
+                text-align: center;
+            }
+            .th {
+                background-color: #f2f2f2;
+            }
+            body {
+                font-family: Arial, sans-serif;
+                background-color: #f8f8f8;
+                margin: 0;
+                padding: 0;
+            }
+            
+            .container {
+                max-width: 400px;
+                margin: 50px auto;
+                padding: 20px;
+                border-radius: 10px;
+                background-color: #fff;
+                box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+            }
+            
+            .h2 {
+                text-align: center;
+                color: #333;
+                margin-bottom: 20px;
+            }
+            
+            .label {
+                font-weight: bold;
+                display: block;
+                margin-bottom: 5px;
+                color: #555;
+            }
+            
+            .input[type="number"] {
+                width: 100%;
+                padding: 8px;
+                margin-bottom: 10px;
+                border: 1px solid #ccc;
+                border-radius: 4px;
+                box-sizing: border-box;
+            }
+            
+            .button {
+                width: 100%;
+                padding: 10px;
+                border: none;
+                border-radius: 4px;
+                background-color: #f44336;
+                color: white;
+                cursor: pointer;
+            }
+            
+            .button:hover {
+                background-color: #e53935;
+            }
+            
+            #result {
+                margin-top: 20px;
+                font-weight: bold;
+                text-align: center;
+                color: #333;
+            }
+            
+        </style>
+    </head>
+    <body class="sb-nav-fixed">
+        <nav class="sb-topnav navbar navbar-expand navbar-dark bg-dark">
+            <!-- Sidebar Toggle-->
+            <button class="btn btn-link btn-sm order-1 order-lg-0 me-4 me-lg-0" id="sidebarToggle" href="#!"><i class="fas fa-bars"></i></button>
+             <!-- Navbar Brand-->
+             <a class="navbar-brand ps-3" href="index.html">CalcRafter</a>
+            <!-- Navbar Search-->
+            <form class="d-none d-md-inline-block form-inline ms-auto me-0 me-md-3 my-2 my-md-0">
+                <div class="input-group">
+                    <input class="form-control" type="text" placeholder="Search for..." aria-label="Search for..." aria-describedby="btnNavbarSearch" />
+                    <button class="btn btn-primary" id="btnNavbarSearch" type="button"><i class="fas fa-search"></i></button>
+                </div>
+            </form>
+            <!-- Navbar-->
+            <ul class="navbar-nav ms-auto ms-md-0 me-3 me-lg-4">
+                <li class="nav-item dropdown">
+                    
+                </li>
+            </ul>
+        </nav>
+        <div id="layoutSidenav">
+            <div id="layoutSidenav_nav">
+                <nav class="sb-sidenav accordion sb-sidenav-dark" id="sidenavAccordion">
+                    <div class="sb-sidenav-menu">
+                        <div class="nav">
+                            <div class="sb-sidenav-menu-heading">Core</div>
+                            <a class="nav-link" href="index.html">
+                                <div class="sb-nav-link-icon"><i class="fas fa-tachometer-alt"></i></div>
+                                Dashboard
+                            </a>                               
+                            <div class="collapse" id="collapseLayouts" aria-labelledby="headingOne" data-bs-parent="#sidenavAccordion"></div>
+                            <div class="collapse" id="collapsePages" aria-labelledby="headingTwo" data-bs-parent="#sidenavAccordion"></div>
+
+                            <div class="sb-sidenav-menu-heading">Calculators</div>
+                            <a class="nav-link" href="Math.html">
+                                <div class="sb-nav-link-icon"><i class="fa-solid fa-calculator"></i></div>
+                               Math
+                            </a>
+                            <a class="nav-link" href="Fitness.html">
+                                <div class="sb-nav-link-icon"><i class="fas fa-dumbbell"></i></div>
+                               Fitness
+                            </a>
+                            <a class="nav-link" href="Finance.html">
+                                <div class="sb-nav-link-icon"><i class="fas fa-dollar-sign"></i></div>
+                               Finance
+                            </a>
+                            <a class="nav-link" href="Educational.html">
+                                <div class="sb-nav-link-icon"><i class="fa-solid fa-graduation-cap"></i></div>
+                               Educational
+                            </a>
+                        </div>
+                    </div>
+                    <div class="sb-sidenav-footer">
+                        <div class="small"></div>
+                        CalcRafter.com
+                    </div>
+                </nav>
+            </div>
+            <div id="layoutSidenav_content">
+                
+                
+               
+                <main>
+                    <div class="container-fluid px-4">
+                        
+                        <div class="container">
+                            <h1 class="h2">Body Fat Calculator</h1>
+                            <form id="bodyFatForm">
+                                <label class="label" for="age">Age (years):</label>
+                                <input  class="input" type="number" id="age" required><br><br>
+                                <label class="label" for="height">Height (cm):</label>
+                                <input class="input" type="number" id="height" required><br><br>
+                                <label class="label" for="weight">Weight (kg):</label>
+                                <input class="input" type="number" id="weight" required><br><br>
+                                <label  class="label" for="waist">Waist Circumference (inches):</label>
+                                <input class="input" type="number" id="waist" required><br><br>
+                                <label  class="label" for="gender">Gender:</label>
+                        <select id="gender" size="1" style="width: 150px;">
+                            <option value="male">Male</option>
+                            <option value="female">Female</option>
+                        </select><br><br>
+                                <button class="button" type="button" id="calculateBtn">Calculate Body Fat</button>
+                            </form>
+                            <div id="result"></div>
+                        </div>
+                        <br>
+                        <table class="table1">
+                            <tr>
+                                <th class="th1"></th>Age Group</th>
+                                <th class="th1">Healthy Body Fat Percentage for Men (%)</th>
+                                <th class="th1">Healthy Body Fat Percentage for Women (%)</th>
+                            </tr>
+                            <tr>
+                                <td class="td1">20-39 years</td>
+                                <td class="td1">8-19%</td>
+                                <td class="td1">21-33%</td>
+                            </tr>
+                            <tr>
+                                <td class="td1">40-59 years</td>
+                                <td class="td1">11-21%</td>
+                                <td class="td1">23-35%</td>
+                            </tr>
+                            <tr>
+                                <td class="td1">60-79 years</td>
+                                <td class="td1">13-25%</td>
+                                <td class="td1">24-36%</td>
+                            </tr>
+                            
+                        </table>
+                        <p>
+                            Maintaining a healthy body fat level:<br><br>
+                        
+                        Here are some tips for maintaining a healthy body fat level:
+                        
+                        Eat a balanced diet: Focus on whole, unprocessed foods, including fruits, vegetables, whole grains, and lean protein sources. <br>
+                        Limit unhealthy fats, added sugars, and refined carbohydrates.
+                        Engage in regular physical activity: Aim for at least 150 minutes of moderate-intensity aerobic activity or 75 minutes of vigorous-intensity aerobic activity per week, combined with strength training exercises two or more days per week.<br>
+                        Consult a healthcare professional: They can help you determine a healthy body fat range for you and develop a personalized plan to achieve and maintain your goals.
+                        </p>
+
+
+
+
+                    </div>
+                </main>
+                
+                
+                <footer class="py-4 bg-dark mt-auto">
+                    <div class="container-fluid px-4">
+                        <div class="d-flex align-items-center justify-content-between small">
+                            <div class="m-0 text-center text-white">Copyright &copy; CalcRafter</div>   
+                        </div>
+                    </div>
+                </footer>
+            </div>
+        </div>
+        <script>
+            document.getElementById('calculateBtn').addEventListener('click', function() {
+                var age = parseFloat(document.getElementById('age').value);
+                var height = parseFloat(document.getElementById('height').value);
+                var weight = parseFloat(document.getElementById('weight').value);
+                var waist = parseFloat(document.getElementById('waist').value);
+                var gender = document.getElementById('gender').value;
+            
+                var heightMeters = height * 0.0254;
+                var bodyDensity;
+                var bodyFatPercentage;
+            
+                if (gender === 'male') {
+                    bodyDensity = 1.10938 - (0.0008267 * waist) + (0.0000016 * waist * waist) - (0.0002574 * age);
+                    bodyFatPercentage = ((4.95 / bodyDensity) - 4.5) * 100;
+                } else {
+                    bodyDensity = 1.0994921 - (0.0009929 * waist) + (0.0000023 * waist * waist) - (0.0001392 * age);
+                    bodyFatPercentage = ((4.95 / bodyDensity) - 4.5) * 100;
+                }
+            
+                if (bodyFatPercentage < 0) {
+                    bodyFatPercentage = 0; // Set to 0 if negative
+                }
+            
+                document.getElementById('result').innerHTML = "Body Fat Percentage: " + bodyFatPercentage.toFixed(2) + "%";
+            });
+            
+        </script>
+        <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/js/bootstrap.bundle.min.js" crossorigin="anonymous"></script>
+        <script src="js/scripts.js"></script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.8.0/Chart.min.js" crossorigin="anonymous"></script>
+        <script src="assets/demo/chart-area-demo.js"></script>
+        <script src="assets/demo/chart-bar-demo.js"></script>
+        <script src="assets/demo/chart-pie-demo.js"></script>
+    </body>
+</html>

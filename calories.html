@@ -1,0 +1,264 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="utf-8" />
+        <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+        <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no" />
+        <meta name="description" content="" />
+        <meta name="author" content="" />
+        <title>Calories Burned Calculator</title>
+        
+        <link href="css/styles.css" rel="stylesheet" />
+        <script src="https://use.fontawesome.com/releases/v6.3.0/js/all.js" crossorigin="anonymous"></script>
+        <style>
+            .body {
+                font-family: Arial, sans-serif;
+                margin: 0;
+                padding: 0;
+                background-color: #f8f9fa;
+            }
+            
+            .calculator {
+                max-width: 400px;
+                margin: 50px auto;
+                padding: 20px;
+                background-color: #fff;
+                border-radius: 5px;
+                box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+            }
+            
+            .h1 {
+                font-size: 24px;
+                margin-bottom: 20px;
+                text-align: center;
+                color: #333;
+            }
+            
+            .label {
+                display: block;
+                margin-bottom: 5px;
+                color: #555;
+            }
+            
+            .input[type="number"],
+            .select {
+                width: calc(100% - 18px);
+                padding: 8px;
+                margin-bottom: 10px;
+                border: 1px solid #ccc;
+                border-radius: 4px;
+                box-sizing: border-box;
+            }
+            
+            .button {
+                display: block;
+                width: 100%;
+                padding: 10px;
+                background-color: #ec503b;
+                color: #fff;
+                border: none;
+                border-radius: 4px;
+                cursor: pointer;
+                font-size: 16px;
+            }
+            
+            .button:hover {
+                background-color: #ec2f25;
+            }
+            
+            #result {
+                margin-top: 20px;
+                font-weight: bold;
+                text-align: center;
+                color: #333;
+            }
+            
+        </style>
+    </head>
+    <body class="sb-nav-fixed">
+        <nav class="sb-topnav navbar navbar-expand navbar-dark bg-dark">
+            <!-- Sidebar Toggle-->
+            <button class="btn btn-link btn-sm order-1 order-lg-0 me-4 me-lg-0" id="sidebarToggle" href="#!"><i class="fas fa-bars"></i></button>
+             <!-- Navbar Brand-->
+             <a class="navbar-brand ps-3" href="index.html">CalcRafter</a>
+            <!-- Navbar Search-->
+            <form class="d-none d-md-inline-block form-inline ms-auto me-0 me-md-3 my-2 my-md-0">
+                <div class="input-group">
+                    <input class="form-control" type="text" placeholder="Search for..." aria-label="Search for..." aria-describedby="btnNavbarSearch" />
+                    <button class="btn btn-primary" id="btnNavbarSearch" type="button"><i class="fas fa-search"></i></button>
+                </div>
+            </form>
+            <!-- Navbar-->
+            <ul class="navbar-nav ms-auto ms-md-0 me-3 me-lg-4">
+                <li class="nav-item dropdown">
+                    
+                </li>
+            </ul>
+        </nav>
+        <div id="layoutSidenav">
+            <div id="layoutSidenav_nav">
+                <nav class="sb-sidenav accordion sb-sidenav-dark" id="sidenavAccordion">
+                    <div class="sb-sidenav-menu">
+                        <div class="nav">
+                            <div class="sb-sidenav-menu-heading">Core</div>
+                            <a class="nav-link" href="index.html">
+                                <div class="sb-nav-link-icon"><i class="fas fa-tachometer-alt"></i></div>
+                                Dashboard
+                            </a>                               
+                            <div class="collapse" id="collapseLayouts" aria-labelledby="headingOne" data-bs-parent="#sidenavAccordion"></div>
+                            <div class="collapse" id="collapsePages" aria-labelledby="headingTwo" data-bs-parent="#sidenavAccordion"></div>
+
+                            <div class="sb-sidenav-menu-heading">Calculators</div>
+                            <a class="nav-link" href="Math.html">
+                                <div class="sb-nav-link-icon"><i class="fa-solid fa-calculator"></i></div>
+                               Math
+                            </a>
+                            <a class="nav-link" href="Fitness.html">
+                                <div class="sb-nav-link-icon"><i class="fas fa-dumbbell"></i></div>
+                               Fitness
+                            </a>
+                            <a class="nav-link" href="Finance.html">
+                                <div class="sb-nav-link-icon"><i class="fas fa-dollar-sign"></i></div>
+                               Finance
+                            </a>
+                            <a class="nav-link" href="Educational.html">
+                                <div class="sb-nav-link-icon"><i class="fa-solid fa-graduation-cap"></i></div>
+                               Educational
+                            </a>
+                        </div>
+                    </div>
+                    <div class="sb-sidenav-footer">
+                        <div class="small"></div>
+                        CalcRafter.com
+                    </div>
+                </nav>
+            </div>
+            <div id="layoutSidenav_content">
+                
+               
+                <main>
+                    <div class="container-fluid px-4">
+                        <div class="calculator">
+                            <h1 class="h1">Calories Burned Calculator</h1>
+                            <div>
+                                <label class="label" for="activity">Activity:</label>
+                                <select class="select" id="activity" required>
+                                    <option value="running">Running</option>
+                                    <option value="cycling">Cycling</option>
+                                    <option value="swimming">Swimming</option>
+                                    <option value="swimming">Weight Lifting</option>
+                                    <option value="swimming">Calesthenics</option>
+                                    <option value="swimming">Cardio</option>
+                                </select>
+                            </div>
+                            <div>
+                                <label class="label" for="duration">Duration (mins):</label>
+                                <input class="input" type="number" id="duration" placeholder="Duration" min="0.1" step="0.1" required>
+                            </div>
+                            <div>
+                                <label class="label" for="weight">Body Weight (kg):</label>
+                                <input class="input" type="number" id="weight" placeholder="Weight" min="1" required>
+                            </div>
+                            <button class="button" onclick="calculateCaloriesBurned()">Calculate</button>
+                            <div id="result"></div>
+                        </div>
+                       
+                        <p>
+                            The number of calories that the body burns during regular daily activities or exercise is dependent on various factors,
+                             so it is not an exact science. The results of this calculator (and any other) are based on standardized data that references an "average"
+                               person, so it is only an estimate.
+                             The formula and methodology used by this calculator are described below in the "Calculating calories burned" section.
+                             <br><br>
+                    
+                             <b>Factors affecting calories burned</b><br><br>
+                    The number of calories a person burns by performing a given activity is dependent on many different factors.
+                     Most estimates (including the ones provided by our calculator) involve the use of three key factors: body mass, duration of the activity, 
+                     and the metabolic equivalent of a task (MET). The MET of various tasks have been widely studied,
+                     and our calculator estimates calories burned based on data made available through these studies.
+                    <p>
+                       <b> Body mass and duration</b><br>
+                    
+                        A person's body mass affects how many calories they burn, even at rest. A person who is larger due to more muscle, fat, or height burns more calories.
+                         This is also true during exercise since the body has to do more work to provide energy to a larger person than it would to a smaller person
+                        . Thus, a person who weighs 200 pounds will burn significantly more calories running 1 mile than someone who weighs 100 pounds, given that other conditions remain the same.<br><br>
+                        
+                        Duration of exercise is another factor that affects calories burned. The longer a person performs an exercise, the more calories they will burn. However, the relationship is not as simple as it is with body mass because the intensity of the exercise matters. For example, a person who walks 1 mile in 1 hour will burn significantly fewer calories than someone who walks 5 miles in that hour.
+                    
+                    </p>
+                        </p>
+
+
+
+
+
+                    </div>
+                </main>
+                
+                
+                <footer class="py-4 bg-dark mt-auto">
+                    <div class="container-fluid px-4">
+                        <div class="d-flex align-items-center justify-content-between small">
+                            <div class="m-0 text-center text-white">Copyright &copy; CalcRafter</div>   
+                        </div>
+                    </div>
+                </footer>
+            </div>
+        </div>
+        <script>
+            function calculateCaloriesBurned() {
+                console.log('Calculating calories burned...');
+            
+                const activity = document.getElementById('activity').value;
+                const duration = parseFloat(document.getElementById('duration').value);
+                const weight = parseFloat(document.getElementById('weight').value);
+            
+                console.log('Activity:', activity);
+                console.log('Duration:', duration);
+                console.log('Weight:', weight);
+            
+                // Convert duration to hours
+                const durationHours = duration / 60; // Assuming duration is in minutes
+            
+                let caloriesBurned;
+                switch (activity) {
+                    case 'running':
+                        caloriesBurned = 11.4 * weight * durationHours;
+                        break;
+                    case 'cycling':
+                        caloriesBurned = 6.8 * weight * durationHours;
+                        break;
+                    case 'swimming':
+                        caloriesBurned = 8.0 * weight * durationHours;
+                        break;
+                    case 'weightlifting':
+                        caloriesBurned = 3.5 * weight * durationHours;
+                        break;
+                    case 'calisthenics':
+                        caloriesBurned = 5.0 * weight * durationHours;
+                        break;
+                    case 'cardio':
+                        caloriesBurned = 8.0 * weight * durationHours;
+                        break;
+                    default:
+                        caloriesBurned = 0;
+                }
+            
+                console.log('Calories Burned:', caloriesBurned);
+            
+                const resultElement = document.getElementById('result');
+                if (resultElement) {
+                    resultElement.innerText = `Calories Burned: ${caloriesBurned.toFixed(2)} kcal`;
+                } else {
+                    console.error('Result element not found');
+                }
+            }
+            
+        </script>
+        <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/js/bootstrap.bundle.min.js" crossorigin="anonymous"></script>
+        <script src="js/scripts.js"></script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.8.0/Chart.min.js" crossorigin="anonymous"></script>
+        <script src="assets/demo/chart-area-demo.js"></script>
+        <script src="assets/demo/chart-bar-demo.js"></script>
+        <script src="assets/demo/chart-pie-demo.js"></script>
+    </body>
+</html>

@@ -1,0 +1,314 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no" />
+    <meta name="description" content="" />
+    <meta name="author" content="" />
+    <title></title>
+    <link href="css/styles.css" rel="stylesheet" />
+    <script src="https://use.fontawesome.com/releases/v6.3.0/js/all.js" crossorigin="anonymous"></script>
+    <style>
+        /* Calculator buttons with provided CSS */
+        .calculator-buttons {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 20px;
+            margin-top: 20px;
+        }
+        
+        .calculator-button {
+            width: 100%;
+            padding: 20px;
+            font-size: 20px;
+            border: none;
+            border-radius: 5px;
+            background-color: #007bff;
+            color: #fff;
+            cursor: pointer;
+            transition: background-color 0.3s;
+        }
+        
+        .calculator-button:hover {
+            background-color: #0056b3;
+        }
+        
+        /* Rest of the CSS */
+        .ag-format-container {
+            width: 1142px;
+            margin: 0 auto;
+          }
+          
+          
+          body {
+            background-color: #ffffff;
+          }
+          .ag-courses_box {
+            display: -webkit-box;
+            display: -ms-flexbox;
+            display: flex;
+            -webkit-box-align: start;
+            -ms-flex-align: start;
+            align-items: flex-start;
+            -ms-flex-wrap: wrap;
+            flex-wrap: wrap;
+          
+            padding: 50px 0;
+          }
+          .ag-courses_item {
+            -ms-flex-preferred-size: calc(33.33333% - 30px);
+            flex-basis: calc(33.33333% - 30px);
+          
+            margin: 0 15px 30px;
+          
+            overflow: hidden;
+          
+            border-radius: 28px;
+          }
+          .ag-courses-item_link {
+            display: block;
+            padding: 30px 20px;
+            background-color: #292e32;
+          
+            overflow: hidden;
+          
+            position: relative;
+          }
+          .ag-courses-item_link:hover,
+          .ag-courses-item_link:hover .ag-courses-item_date {
+            text-decoration: none;
+            color: #FFF;
+          }
+          .ag-courses-item_link:hover .ag-courses-item_bg {
+            -webkit-transform: scale(10);
+            -ms-transform: scale(10);
+            transform: scale(10);
+          }
+          .ag-courses-item_title {
+            min-height: 87px;
+            margin: 0 0 25px;
+          
+            overflow: hidden;
+          
+            font-weight: bold;
+            font-size: 30px;
+            color: #FFF;
+          
+            z-index: 2;
+            position: relative;
+          }
+          .ag-courses-item_date-box {
+            font-size: 18px;
+            color: #FFF;
+          
+            z-index: 2;
+            position: relative;
+          }
+          .ag-courses-item_date {
+            font-weight: bold;
+            color: #f9b234;
+          
+            -webkit-transition: color .5s ease;
+            -o-transition: color .5s ease;
+            transition: color .5s ease
+          }
+          .ag-courses-item_bg {
+            height: 128px;
+            width: 128px;
+            background-color: #f9b234;
+          
+            z-index: 1;
+            position: absolute;
+            top: -75px;
+            right: -75px;
+          
+            border-radius: 50%;
+          
+            -webkit-transition: all .5s ease;
+            -o-transition: all .5s ease;
+            transition: all .5s ease;
+          }
+          .ag-courses_item:nth-child(2n) .ag-courses-item_bg {
+            background-color: #3ecd5e;
+          }
+          .ag-courses_item:nth-child(3n) .ag-courses-item_bg {
+            background-color: #e44002;
+          }
+          .ag-courses_item:nth-child(4n) .ag-courses-item_bg {
+            background-color: #952aff;
+          }
+          .ag-courses_item:nth-child(5n) .ag-courses-item_bg {
+            background-color: #cd3e94;
+          }
+          .ag-courses_item:nth-child(6n) .ag-courses-item_bg {
+            background-color: #4c49ea;
+          }
+          
+          
+          
+          @media only screen and (max-width: 979px) {
+            .ag-courses_item {
+              -ms-flex-preferred-size: calc(50% - 30px);
+              flex-basis: calc(50% - 30px);
+            }
+            .ag-courses-item_title {
+              font-size: 24px;
+            }
+          }
+          
+          @media only screen and (max-width: 767px) {
+            .ag-format-container {
+              width: 96%;
+            }
+          
+          }
+          @media only screen and (max-width: 639px) {
+            .ag-courses_item {
+              -ms-flex-preferred-size: 100%;
+              flex-basis: 100%;
+            }
+            .ag-courses-item_title {
+              min-height: 72px;
+              line-height: 1;
+          
+              font-size: 24px;
+            }
+            .ag-courses-item_link {
+              padding: 22px 40px;
+            }
+            .ag-courses-item_date-box {
+              font-size: 16px;
+            }
+          }
+          a {
+            text-decoration: none;
+          }
+
+          .simpcalculator {
+            max-width: 300px;
+            margin: 0 auto;
+            padding: 20px;
+            background-color: #292e32;
+            border-radius: 5px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+            border: #7362f1 3px solid;
+        }
+        
+        #display1 {
+            width: calc(100% - 0px);
+            height: 50px;
+            margin-bottom: 10px;
+            padding: 5px;
+            font-size: 24px;
+            background-color: #d4caca;
+        }
+        .buttons{
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            gap: 10px;
+        }
+        .button1 {
+            
+            width: 100%;
+            height: 50px;
+            font-size: 20px;
+            border: none;
+            border-radius: 5px;
+            background-color: #7362f1;
+            color: rgb(255, 255, 255);
+            cursor: pointer;
+            transition: background-color 0.3s;
+        }
+                                          
+        .button1:hover {
+            background-color: #45a049;
+        }        
+    </style>
+</head>
+<body class="sb-nav-fixed">
+    <nav class="sb-topnav navbar navbar-expand navbar-dark bg-dark">
+        <!-- Sidebar Toggle-->
+        <button class="btn btn-link btn-sm order-1 order-lg-0 me-4 me-lg-0" id="sidebarToggle" href="#!"><i class="fas fa-bars"></i></button>
+        <!-- Navbar Brand-->
+        <a class="navbar-brand ps-3" href="index.html">CalcRafter</a>
+        <!-- Navbar Search-->
+        <form class="d-none d-md-inline-block form-inline ms-auto me-0 me-md-3 my-2 my-md-0">
+            <div class="input-group">
+                <input class="form-control" type="text" placeholder="Search for..." aria-label="Search for..." aria-describedby="btnNavbarSearch" />
+                <button class="btn btn-primary" id="btnNavbarSearch" type="button"><i class="fas fa-search"></i></button>
+            </div>
+        </form>
+        <!-- Navbar-->
+        <ul class="navbar-nav ms-auto ms-md-0 me-3 me-lg-4">
+            <li class="nav-item dropdown">
+                
+            </li>
+        </ul>
+    </nav>
+    <div id="layoutSidenav">
+        <div id="layoutSidenav_nav">
+            <nav class="sb-sidenav accordion sb-sidenav-dark" id="sidenavAccordion">
+                <div class="sb-sidenav-menu">
+                    <div class="nav">
+                        <div class="sb-sidenav-menu-heading">Core</div>
+                        <a class="nav-link" href="index.html">
+                            <div class="sb-nav-link-icon"><i class="fas fa-tachometer-alt"></i></div>
+                            Dashboard
+                        </a>                               
+                        <div class="collapse" id="collapseLayouts" aria-labelledby="headingOne" data-bs-parent="#sidenavAccordion"></div>
+                        <div class="collapse" id="collapsePages" aria-labelledby="headingTwo" data-bs-parent="#sidenavAccordion"></div>
+
+                        
+                    </div>
+                </div>
+                <div class="sb-sidenav-footer">
+                    <div class="small"></div>
+                    CalcRafter.com
+                </div>
+            </nav>
+        </div>
+        <div id="layoutSidenav_content">
+            
+            <header class="bg-dark py-5">
+                <div class="container px-4 px-lg-5 my-5">
+                    <div class="text-center text-white">
+                        <h1 class="display-4 fw-bolder">Header</h1>
+                    </div>
+                </div>
+            </header>
+           
+            <main>
+                <div class="container-fluid px-4">
+                    
+                    <div class="sb-sidenav-menu-heading">Calculators</div>
+                    <!-- Calculator Buttons -->
+                    <div class="calculator-buttons">
+                        <button class="calculator-button" onclick="window.location.href='ResistorColorCode.html'">Resistor Color Code</button>
+                        <button class="calculator-button" onclick="window.location.href='OhmsLaw.html'">Ohm's Law</button>
+                        <button class="calculator-button" onclick="window.location.href='CapacitorCharge.html'">Capacitor Charge</button>
+                        <button class="calculator-button" onclick="window.location.href='VoltageDivider.html'">Voltage Divider</button>
+                        <button class="calculator-button" onclick="window.location.href='RCFilter.html'">RC Filter</button>
+                        <button class="calculator-button" onclick="window.location.href='RLCCircuit.html'">RLC Circuit</button>
+                    </div>
+                </div>
+            </main>
+            
+            
+            <footer class="py-4 bg-dark mt-auto">
+                <div class="container-fluid px-4">
+                    <div class="d-flex align-items-center justify-content-between small">
+                        <div class="m-0 text-center text-white">Copyright &copy; CalcRafter</div>   
+                    </div>
+                </div>
+            </footer>
+        </div>
+    </div>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/js/bootstrap.bundle.min.js" crossorigin="anonymous"></script>
+    <script src="js/scripts.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.8.0/Chart.min.js" crossorigin="anonymous"></script>
+    <script src="assets/demo/chart-area-demo.js"></script>
+    <script src="assets/demo/chart-bar-demo.js"></script>
+    <script src="assets/demo/chart-pie-demo.js"></script>
+</body>
+</html>

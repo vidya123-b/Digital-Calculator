@@ -1,0 +1,313 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no" />
+    <meta name="description" content="" />
+    <meta name="author" content="" />
+    <title>Round Robin Scheduling Algorithm</title>
+    <link href="/css/styles.css" rel="stylesheet" />
+    <script src="https://use.fontawesome.com/releases/v6.3.0/js/all.js" crossorigin="anonymous"></script>
+    <style>
+        #rrmain {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: #f7f7f7;
+            color: #333;
+        }
+
+        #rrmain h2 {
+            text-align: center;
+            margin-top: 20px;
+        }
+
+        #rrmain form {
+            max-width: 500px;
+            margin: 20px auto;
+            padding: 20px;
+            background-color: #fff;
+            border-radius: 8px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+        }
+
+        #rrmain label {
+            display: block;
+            margin-bottom: 5px;
+        }
+
+        #rrmain input[type="number"],
+        #rrmain input[type="text"],
+        #rrmain button {
+            width: 100%;
+            padding: 10px;
+            margin-bottom: 10px;
+            border: 1px solid #ccc;
+            border-radius: 4px;
+            box-sizing: border-box;
+        }
+
+        #rrmain button {
+            background-color: #4caf50;
+            color: #fff;
+            cursor: pointer;
+        }
+
+        #rrmain button:hover {
+            background-color: #45a049;
+        }
+
+        #rrmain #results {
+            max-width: 800px;
+            margin: 20px auto;
+            padding: 20px;
+            background-color: #fff;
+            border-radius: 8px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+        }
+
+        #rrmain table {
+            width: 100%;
+            border-collapse: collapse;
+        }
+
+        #rrmain th, #rrmain td {
+            padding: 8px;
+            border-bottom: 1px solid #ddd;
+            text-align: left;
+        }
+
+        #rrmain th {
+            background-color: #f2f2f2;
+        }
+
+        #rrmain p {
+            margin-top: 20px;
+        }
+
+        #rrmain .button-container {
+            display: flex;
+            justify-content: space-between;
+            max-width: 500px;
+            margin: 20px auto;
+        }
+
+        #rrmain .button-container button {
+            width: 48%;
+        }
+
+        #rrmain .gantt-chart {
+            margin-top: 20px;
+            max-width: 800px;
+            overflow-x: auto;
+            display: flex;
+            align-items: center;
+        }
+
+        #rrmain .bar {
+            height: 40px;
+            background-color: #4caf50;
+            margin-right: 5px;
+            flex-shrink: 0;
+        }
+
+        #rrmain .bar span {
+            padding: 5px;
+            color: #fff;
+        }
+
+        #rrmain .time-label {
+            font-size: 12px;
+            margin-right: 5px;
+        }
+    </style>
+
+</head>
+<body class="sb-nav-fixed">
+<nav class="sb-topnav navbar navbar-expand navbar-dark bg-dark">
+    <!-- Sidebar Toggle-->
+    <button class="btn btn-link btn-sm order-1 order-lg-0 me-4 me-lg-0" id="sidebarToggle" href="#!"><i class="fas fa-bars"></i></button>
+    <!-- Navbar Brand-->
+    <a class="navbar-brand ps-3" href="index.html">CalcRafter</a>
+    <!-- Navbar Search-->
+    <form class="d-none d-md-inline-block form-inline ms-auto me-0 me-md-3 my-2 my-md-0">
+        <div class="input-group">
+            <input class="form-control" type="text" placeholder="Search for..." aria-label="Search for..." aria-describedby="btnNavbarSearch" />
+            <button class="btn btn-primary" id="btnNavbarSearch" type="button"><i class="fas fa-search"></i></button>
+        </div>
+    </form>
+    <!-- Navbar-->
+    <ul class="navbar-nav ms-auto ms-md-0 me-3 me-lg-4">
+        <li class="nav-item dropdown">
+
+        </li>
+    </ul>
+</nav>
+<div id="layoutSidenav">
+    <div id="layoutSidenav_nav">
+        <nav class="sb-sidenav accordion sb-sidenav-dark" id="sidenavAccordion">
+            <div class="sb-sidenav-menu">
+                <div class="nav">
+                    <div class="sb-sidenav-menu-heading">Core</div>
+                    <a class="nav-link" href="index.html">
+                        <div class="sb-nav-link-icon"><i class="fas fa-tachometer-alt"></i></div>
+                        Dashboard
+                    </a>
+                    <div class="collapse" id="collapseLayouts" aria-labelledby="headingOne" data-bs-parent="#sidenavAccordion"></div>
+                    <div class="collapse" id="collapsePages" aria-labelledby="headingTwo" data-bs-parent="#sidenavAccordion"></div>
+
+                    <div class="sb-sidenav-menu-heading">Calculators</div>
+                    <a class="nav-link" href="Math.html">
+                        <div class="sb-nav-link-icon"><i class="fa-solid fa-calculator"></i></div>
+                        Math
+                    </a>
+                    <a class="nav-link" href="Fitness.html">
+                        <div class="sb-nav-link-icon"><i class="fas fa-dumbbell"></i></div>
+                        Fitness
+                    </a>
+                    <a class="nav-link" href="Finance.html">
+                        <div class="sb-nav-link-icon"><i class="fas fa-dollar-sign"></i></div>
+                        Finance
+                    </a>
+                    <a class="nav-link" href="Educational.html">
+                        <div class="sb-nav-link-icon"><i class="fa-solid fa-graduation-cap"></i></div>
+                        Educational
+                    </a>
+                </div>
+            </div>
+            <div class="sb-sidenav-footer">
+                <div class="small"></div>
+                CalcRafter.com
+            </div>
+        </nav>
+    </div>
+    <div id="layoutSidenav_content">
+
+
+        <main id="rrmain">
+            <h2>Round Robin Scheduling Algorithm</h2>
+
+            <!-- Input form for user input -->
+            <form id="rrForm">
+                <label for="num_processes">Number of Processes:</label>
+                <input type="number" id="num_processes" required>
+                <label for="arrival_times">Arrival Times (comma-separated):</label>
+                <input type="text" id="arrival_times" required>
+                <label for="burst_times">Burst Times (comma-separated):</label>
+                <input type="text" id="burst_times" required>
+                <label for="time_quantum">Time Quantum:</label>
+                <input type="number" id="time_quantum" required>
+                <button type="submit">Calculate</button>
+            </form>
+            
+            <div id="results"></div>
+            
+            <div class="button-container">
+                <button onclick="window.location.href='os-1.html'">Return</button>
+                <button onclick="window.location.href='rr.html'">Clear</button>
+            </div>
+            
+            <script>
+                document.getElementById('rrForm').addEventListener('submit', function(event) {
+                    event.preventDefault();
+                    const numProcesses = parseInt(document.getElementById('num_processes').value);
+                    const arrivalTimesStr = document.getElementById('arrival_times').value;
+                    const burstTimesStr = document.getElementById('burst_times').value;
+                    const timeQuantum = parseInt(document.getElementById('time_quantum').value);
+            
+                    const arrivalTimes = arrivalTimesStr.split(',').map(time => parseInt(time.trim()));
+                    const burstTimes = burstTimesStr.split(',').map(time => parseInt(time.trim()));
+            
+                    let completionTimes = new Array(numProcesses).fill(0);
+                    let waitingTimes = new Array(numProcesses).fill(0);
+                    let turnaroundTimes = new Array(numProcesses).fill(0);
+                    let remainingBurstTimes = burstTimes.slice();
+                    let currentTime = 0;
+                    let remainingProcesses = numProcesses;
+            
+                    while (remainingProcesses > 0) {
+                        for (let i = 0; i < numProcesses; i++) {
+                            if (remainingBurstTimes[i] === 0) continue;
+                            if (remainingBurstTimes[i] > timeQuantum) {
+                                currentTime += timeQuantum;
+                                remainingBurstTimes[i] -= timeQuantum;
+                            } else {
+                                currentTime += remainingBurstTimes[i];
+                                remainingBurstTimes[i] = 0;
+                                completionTimes[i] = currentTime;
+                                turnaroundTimes[i] = completionTimes[i] - arrivalTimes[i];
+                                waitingTimes[i] = turnaroundTimes[i] - burstTimes[i];
+                                remainingProcesses--;
+                            }
+                        }
+                    }
+            
+                    const avgWaitingTime = waitingTimes.reduce((acc, val) => acc + val, 0) / numProcesses;
+                    const avgTurnaroundTime = turnaroundTimes.reduce((acc, val) => acc + val, 0) / numProcesses;
+            
+                    // Display the results
+                    const resultsDiv = document.getElementById('results');
+                    resultsDiv.innerHTML = `
+                        <h3>Results</h3>
+                        <table>
+                            <tr>
+                                <th>Process</th>
+                                <th>Arrival Time</th>
+                                <th>Burst Time</th>
+                                <th>Completion Time</th>
+                                <th>Waiting Time</th>
+                                <th>Turnaround Time</th>
+                            </tr>
+                            ${Array.from({ length: numProcesses }, (_, i) => `
+                                <tr>
+                                    <td>P${i + 1}</td>
+                                    <td>${arrivalTimes[i]}</td>
+                                    <td>${burstTimes[i]}</td>
+                                    <td>${completionTimes[i]}</td>
+                                    <td>${waitingTimes[i]}</td>
+                                    <td>${turnaroundTimes[i]}</td>
+                                </tr>
+                            `).join('')}
+                        </table>
+                        <p>Average Waiting Time: ${avgWaitingTime}</p>
+                        <p>Average Turnaround Time: ${avgTurnaroundTime}</p>`;
+            
+                    // Generate Gantt chart
+                    const ganttChartDiv = document.createElement('div');
+                    ganttChartDiv.classList.add('gantt-chart');
+            
+                    let ganttHtml = '<h3>Gantt Chart</h3>';
+                    let startTime = 0;
+                    for (let i = 0; i < numProcesses; i++) {
+                        const processHtml = `<div class="bar" style="width: ${burstTimes[i]}%;">P${i + 1}</div>`;
+                        ganttHtml += processHtml.repeat(Math.ceil(burstTimes[i] / timeQuantum));
+                        startTime += burstTimes[i];
+                    }
+                    ganttHtml += `<div class="time-label">${startTime}</div>`;
+                    ganttChartDiv.innerHTML = ganttHtml;
+                    resultsDiv.appendChild(ganttChartDiv);
+                });
+            </script>
+            
+            </main>
+            
+            <footer class="py-4 bg-dark mt-auto">
+                <div class="container-fluid px-4">
+                    <div class="d-flex align-items-center justify-content-between small">
+                        <div class="m-0
+                        text-center text-white">Copyright &copy; CalcRafter</div>   
+        </div>
+    </div>
+</footer>
+</div>
+</div>
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/js/bootstrap.bundle.min.js" crossorigin="anonymous"></script>
+<script src="js/scripts.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.8.0/Chart.min.js" crossorigin="anonymous"></script>
+<script src="assets/demo/chart-area-demo.js"></script>
+<script src="assets/demo/chart-bar-demo.js"></script>
+<script src="assets/demo/chart-pie-demo.js"></script>
+</body>
+</html>
+            
